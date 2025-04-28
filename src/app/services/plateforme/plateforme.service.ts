@@ -11,27 +11,33 @@ private apiUrl = 'http://localhost:8080/api/plateforme';
 
   constructor(private http: HttpClient) { }
 
-  createJeu(plateforme: Plateforme): Observable<Plateforme> {
+  // Ajouter une plateforme
+  createPlateforme(plateforme: Plateforme): Observable<Plateforme> {
     return this.http.post<Plateforme>(this.apiUrl, plateforme);
   }
 
-  getAllJeux(): Observable<Plateforme[]> {
+  // Récupérer toutes les plateformes
+  getAllPlateformes(): Observable<Plateforme[]> {
     return this.http.get<Plateforme[]>(`${this.apiUrl}/all`);
   }
 
-  getJeuById(id: number): Observable<Plateforme> {
+  // Récupérer une plateforme par son ID
+  getPlateformeById(id: number): Observable<Plateforme> {
     return this.http.get<Plateforme>(`${this.apiUrl}/${id}`);
   }
 
-  updateJeu(plateforme: Plateforme): Observable<Plateforme> {
+  // Mettre à jour une plateforme
+  updatePlateforme(plateforme: Plateforme): Observable<Plateforme> {
     return this.http.put<Plateforme>(`${this.apiUrl}/update`, plateforme);
   }
 
-  deleteJeuById(id: number): Observable<void> {
+  // Supprimer une plateforme par son ID
+  deletePlateformeById(id: number): Observable<void> {
     return this.http.delete<void>(`${this.apiUrl}/delete/${id}`);
   }
 
-  deleteAllJeux(): Observable<void> {
+  // Supprimer toutes les plateformes
+  deleteAllPlateformes(): Observable<void> {
     return this.http.delete<void>(`${this.apiUrl}/delete/all`);
   }
 
