@@ -1,9 +1,6 @@
 export class Annee {
-  id: number;
-  annee: number;
-
-  constructor(id: number, annee: number) {
-    this.id = id;
-    this.annee = annee;
-  }
+  constructor(
+    public id: number,
+    public annee: number
+  ) {}
 }

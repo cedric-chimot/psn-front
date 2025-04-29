@@ -1,13 +1,8 @@
 import { Annee } from "./Annee";
 
 export class StatsNiveaux {
-  id: number;
-  niveau: number;
-  idAnnee: Annee;
-
-  constructor(id: number, niveau: number, idAnnee: Annee) {
-    this.id = id;
-    this.niveau = niveau;
-    this.idAnnee = idAnnee;
-  }
+  constructor(
+    public id: number,
+    public niveau: number,
+    public idAnnee: Annee) {}
 }
