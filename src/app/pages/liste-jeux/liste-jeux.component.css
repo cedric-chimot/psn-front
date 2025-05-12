@@ -1,0 +1,46 @@
+.container {
+  max-width: 900px;
+  margin: auto;
+  font-family: Arial, sans-serif;
+}
+
+h2 {
+  margin-bottom: 20px;
+  text-align: center;
+  color: #008080;
+}
+
+/* Table générale */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 14px;
+}
+
+/* En-tête */
+thead tr {
+  background-color: #008080;
+  color: white;
+  font-weight: bold;
+  text-align: left;
+}
+
+/* Lignes de données */
+tbody tr:nth-child(even) {
+  background-color: #f3f3f3; /* Gris clair alterné */
+}
+
+tbody tr:nth-child(odd) {
+  background-color: #ffffff;
+}
+
+/* Cellules */
+th, td {
+  padding: 10px;
+  border: 1px solid #d9d9d9;
+}
+
+/* Hover */
+tbody tr:hover {
+  background-color: #d0e3d0;
+}

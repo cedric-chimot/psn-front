@@ -1,1 +1,28 @@
-<p>liste-jeux works!</p>
+<div class="container mt-4">
+  <h2>Liste des jeux par plateforme</h2>
+
+  <table class="table table-bordered table-striped">
+    <thead>
+      <tr>
+        <th>Jeu</th>
+        <th>Plateforme</th>
+        <th>Platine</th>
+        <th>Or</th>
+        <th>Argent</th>
+        <th>Bronze</th>
+      </tr>
+    </thead>
+    <tbody>
+      @for (jp of jeuxPlateformes; track jeuxPlateformes) {
+        <tr>
+          <td>{{ jp.idJeu.jeu }}</td>
+          <td>{{ jp.idPlateforme.plateforme }}</td>
+          <td>{{ jp.nbPLatine }}</td>
+          <td>{{ jp.nbOr }}</td>
+          <td>{{ jp.nbArgent }}</td>
+          <td>{{ jp.nbBronze }}</td>
+        </tr>
+      }
+    </tbody>
+  </table>
+</div>
