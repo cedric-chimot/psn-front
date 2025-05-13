@@ -16,7 +16,7 @@ export class ListeJeuxComponent {
   constructor(private jpService: JeuxPlateformeService) {}
 
   ngOnInit(): void {
-    this.jpService.getAll().subscribe({
+    this.jpService.getAllJeuxPlateforme().subscribe({
       next: (data) => {
         this.jeuxPlateformes = data;
       },
