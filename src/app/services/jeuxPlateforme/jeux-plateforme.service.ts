@@ -40,5 +40,5 @@ export class JeuxPlateformeService {
   deleteAllJeuxPlateforme(): Observable<void> {
     return this.http.delete<void>(`${this.apiUrl}/delete/all`);
   }
-  
+
 }

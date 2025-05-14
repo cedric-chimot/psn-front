@@ -4,11 +4,12 @@ import { Plateforme } from "./Plateforme";
 export class JeuxPlateforme {
   constructor(
     public id: number,
-    public idJeu: Jeux,
-    public idPlateforme: Plateforme,
-    public nbPLatine: number,
+    public jeu: Jeux,
+    public plateforme: Plateforme,
+    public nbPlatine: number,
     public nbOr: number,
     public nbArgent: number,
-    public nbBronze: number
+    public nbBronze: number,
+    public nbHeures: number,
   ) {}
 }

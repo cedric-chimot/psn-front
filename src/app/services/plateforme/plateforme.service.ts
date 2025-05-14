@@ -7,7 +7,7 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class PlateformeService {
-  private apiUrl = 'http://localhost:8080/api/plateforme';
+  private apiUrl = 'http://localhost:8081/api/plateforme';
 
   constructor(private http: HttpClient) { }
 
