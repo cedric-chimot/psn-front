@@ -23,7 +23,8 @@ thead tr {
   background-color: #008080;
   color: white;
   font-weight: bold;
-  text-align: left;
+  text-align: center;
+  text-transform: uppercase;
 }
 
 /* Lignes de données */
@@ -39,6 +40,7 @@ tbody tr:nth-child(odd) {
 th, td {
   padding: 10px;
   border: 1px solid #d9d9d9;
+  text-align: center;
 }
 
 /* Hover */
