@@ -6,12 +6,13 @@
       <tr>
         <th>Jeu</th>
         <th>Plateforme</th>
+        <th>Action</th>
         <th>Platine</th>
         <th>Or</th>
         <th>Argent</th>
         <th>Bronze</th>
+        <th>Total</th>
         <th>Heures</th>
-        <th>Action</th>
       </tr>
     </thead>
     <tbody>
@@ -19,11 +20,6 @@
         <tr>
           <td style="background-color: #008080; color: white;">{{ jp.jeu.jeu }}</td>
           <td>{{ jp.plateforme.plateforme }}</td>
-          <td>{{ jp.nbPlatine }}</td>
-          <td>{{ jp.nbOr }}</td>
-          <td>{{ jp.nbArgent }}</td>
-          <td>{{ jp.nbBronze }}</td>
-          <td>{{ jp.nbHeures }}</td>
           <td>
             <button class="update">
               <i class="fa-solid fa-pen-nib"></i>
@@ -32,8 +28,23 @@
               <i class="fa-solid fa-trash"></i>
             </button>
           </td>
+          <td>{{ jp.nbPlatine }}</td>
+          <td>{{ jp.nbOr }}</td>
+          <td>{{ jp.nbArgent }}</td>
+          <td>{{ jp.nbBronze }}</td>
+          <td>{{ calculateTotal(jp) }}</td>
+          <td>{{ jp.nbHeures }}</td>
         </tr>
       }
+      <tr style="font-weight: bold;">
+        <td colspan="3" style="background-color: #008080; color: white; text-align: center;">Total</td>
+        <td style="background-color: #008080; color: white; text-align: center;">{{ calculateTotalPlatine() }}</td>
+        <td style="background-color: #008080; color: white; text-align: center;">{{ calculateTotalOr() }}</td>
+        <td style="background-color: #008080; color: white; text-align: center;">{{ calculateTotalArgent() }}</td>
+        <td style="background-color: #008080; color: white; text-align: center;">{{ calculateTotalBronze() }}</td>
+        <td style="background-color: #008080; color: white; text-align: center;">{{ calculateTotalTrophees() }}</td>
+        <td style="background-color: #008080; color: white; text-align: center;">{{ calculateTotalHeures() }}</td>
+      </tr>
     </tbody>
   </table>
 </div>

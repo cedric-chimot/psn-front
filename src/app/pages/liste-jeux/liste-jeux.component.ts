@@ -44,11 +44,33 @@ export class ListeJeuxComponent implements OnInit {
     console.log(this.jeuxPlateformes);
   }
 
-  getNomJeu(id: number): string {
-    return this.jeux.find(j => j.id === id)?.jeu || '???';
+  // Calculer le nombre total de trophées pour un jeu
+  calculateTotal(jp: any): number {
+    return jp.nbPlatine + jp.nbOr + jp.nbArgent + jp.nbBronze;
   }
 
-  getNomPlateforme(id: number): string {
-    return this.plateformes.find(p => p.id === id)?.plateforme || '???';
+  // Calcul des totaux pour chaque colonne
+  calculateTotalPlatine(): number {
+    return this.jeuxPlateformes.reduce((total, jp) => total + jp.nbPlatine, 0);
+  }
+
+  calculateTotalOr(): number {
+    return this.jeuxPlateformes.reduce((total, jp) => total + jp.nbOr, 0);
+  }
+
+  calculateTotalArgent(): number {
+    return this.jeuxPlateformes.reduce((total, jp) => total + jp.nbArgent, 0);
+  }
+
+  calculateTotalBronze(): number {
+    return this.jeuxPlateformes.reduce((total, jp) => total + jp.nbBronze, 0);
+  }
+
+  calculateTotalTrophees(): number {
+    return this.jeuxPlateformes.reduce((total, jp) => total + jp.nbPlatine + jp.nbOr + jp.nbArgent + jp.nbBronze, 0);
+  }
+
+  calculateTotalHeures(): number {
+    return this.jeuxPlateformes.reduce((total, jp) => total + jp.nbHeures, 0);
   }
 }
