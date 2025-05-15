@@ -16,6 +16,8 @@ table {
   width: 100%;
   border-collapse: collapse;
   font-size: 14px;
+  border-radius: 10px;
+  overflow: hidden;
 }
 
 /* En-tête */
