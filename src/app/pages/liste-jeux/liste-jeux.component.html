@@ -1,50 +1,68 @@
 <div class="container mt-4">
   <h2>Trophées potentiels jeux PS4/PS5</h2>
 
-  <table class="table table-bordered table-striped">
-    <thead>
-      <tr>
-        <th>Jeu</th>
-        <th>Plateforme</th>
-        <th>Action</th>
-        <th>Platine</th>
-        <th>Or</th>
-        <th>Argent</th>
-        <th>Bronze</th>
-        <th>Total</th>
-        <th>Heures</th>
-      </tr>
-    </thead>
-    <tbody>
-      @for (jp of jeuxPlateformes; track $index) {
-        <tr>
-          <td style="background-color: #008080; color: white;">{{ jp.jeu.jeu }}</td>
-          <td>{{ jp.plateforme.plateforme }}</td>
-          <td>
-            <button class="update">
-              <i class="fa-solid fa-pen-nib"></i>
-            </button>
-            <button class="delete">
-              <i class="fa-solid fa-trash"></i>
-            </button>
-          </td>
-          <td>{{ jp.nbPlatine }}</td>
-          <td>{{ jp.nbOr }}</td>
-          <td>{{ jp.nbArgent }}</td>
-          <td>{{ jp.nbBronze }}</td>
-          <td>{{ calculateTotal(jp) }}</td>
-          <td>{{ jp.nbHeures }}</td>
-        </tr>
-      }
-      <tr style="font-weight: bold;">
-        <td colspan="3" style="background-color: #008080; color: white; text-align: center;">Total</td>
-        <td style="background-color: #008080; color: white; text-align: center;">{{ calculateTotalPlatine() }}</td>
-        <td style="background-color: #008080; color: white; text-align: center;">{{ calculateTotalOr() }}</td>
-        <td style="background-color: #008080; color: white; text-align: center;">{{ calculateTotalArgent() }}</td>
-        <td style="background-color: #008080; color: white; text-align: center;">{{ calculateTotalBronze() }}</td>
-        <td style="background-color: #008080; color: white; text-align: center;">{{ calculateTotalTrophees() }}</td>
-        <td style="background-color: #008080; color: white; text-align: center;">{{ calculateTotalHeures() }}</td>
-      </tr>
-    </tbody>
-  </table>
+  <div class="d-flex align-items-start mt-3">
+    <!-- Colonne gauche avec les boutons -->
+    <div class="button-switch col-12" style="min-width: 200px;">
+      <button class="btn btn-primary mb-4" routerLink="/liste-trophees">
+        <i class="fa-solid fa-list"></i> Liste des trophées
+      </button>
+      <button class="btn btn-secondary" routerLink="/stats">
+        <i class="fa-solid fa-chart-column"></i> Voir les stats
+      </button>
+    </div>
+
+    <!-- Tableau à droite -->
+    <div class="flex-grow-1">
+      <table class="table table-bordered table-striped">
+        <thead>
+          <tr>
+            <th style="background-color: #008080; color: white; text-align: center;">Jeu</th>
+            <th style="background-color: #008080; color: white; text-align: center;">Plateforme</th>
+            <th style="background-color: #008080; color: white; text-align: center;">Action</th>
+            <th style="background-color: #008080; color: white; text-align: center;">Platine</th>
+            <th style="background-color: #008080; color: white; text-align: center;">Or</th>
+            <th style="background-color: #008080; color: white; text-align: center;">Argent</th>
+            <th style="background-color: #008080; color: white; text-align: center;">Bronze</th>
+            <th style="background-color: #008080; color: white; text-align: center;">Total</th>
+            <th style="background-color: #008080; color: white; text-align: center;">Heures</th>
+          </tr>
+        </thead>
+        <tbody>
+          @for (jp of jeuxPlateformes; track $index) {
+            <tr>
+              <td style="background-color: #008080; color: white;">{{ jp.jeu.jeu }}</td>
+              <td>{{ jp.plateforme.plateforme }}</td>
+              <td>
+                <button class="update">
+                  <i class="fa-solid fa-pen-nib"></i>
+                </button>
+                <button class="delete">
+                  <i class="fa-solid fa-trash"></i>
+                </button>
+              </td>
+              <td>{{ jp.nbPlatine }}</td>
+              <td>{{ jp.nbOr }}</td>
+              <td>{{ jp.nbArgent }}</td>
+              <td>{{ jp.nbBronze }}</td>
+              <td>{{ calculateTotal(jp) }}</td>
+              <td>{{ jp.nbHeures }}</td>
+            </tr>
+          }
+          <tr style="font-weight: bold;">
+            <td colspan="3" style="background-color: #008080; color: white; text-align: center;">Total</td>
+            <td style="background-color: #008080; color: white; text-align: center;">{{ calculateTotalPlatine() }}</td>
+            <td style="background-color: #008080; color: white; text-align: center;">{{ calculateTotalOr() }}</td>
+            <td style="background-color: #008080; color: white; text-align: center;">{{ calculateTotalArgent() }}</td>
+            <td style="background-color: #008080; color: white; text-align: center;">{{ calculateTotalBronze() }}</td>
+            <td style="background-color: #008080; color: white; text-align: center;">{{ calculateTotalTrophees() }}</td>
+            <td style="background-color: #008080; color: white; text-align: center;">{{ calculateTotalHeures() }}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  <div style="display: flex; justify-content: center; margin-top: 15px;">
+    <button class="btn add">Ajouter</button>
+  </div>
 </div>
