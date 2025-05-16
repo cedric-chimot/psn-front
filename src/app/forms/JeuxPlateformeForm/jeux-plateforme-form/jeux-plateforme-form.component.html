@@ -1,1 +1,60 @@
-<p>jeux-plateforme-form works!</p>
+<div class="form-container">
+  <form (ngSubmit)="onSubmit()">
+
+    <div formGroupName="jeu">
+      <label for="jeuName">Nom du jeu :</label>
+      <input id="jeuName" formControlName="jeu" />
+      @if (submitted && jeuPlateformeForm.get('jeu.jeu')?.invalid) {
+        <div style="color:red">
+          Le nom du jeu est obligatoire.
+        </div>
+      }
+    </div>
+
+    <label for="idPlateforme">Plateforme :</label>
+    <select id="idPlateforme" formControlName="idPlateforme">
+      <option value="" disabled selected>-- Sélectionner une plateforme --</option>
+      @for (p of plateformes; track $index) {
+        <option [value]="p.id">{{ p.plateforme }}</option>
+      }
+    </select>
+    @if (submitted && jeuPlateformeForm.get('idPlateforme')?.invalid) {
+      <div style="color:red">
+        La plateforme est obligatoire.
+      </div>
+    }
+
+    <label for="nbPlatine">Nombre de trophées platines :</label>
+    <input type="number" id="nbPlatine" formControlName="nbPlatine" min="0" />
+
+    <label for="nbOr">Nombre de trophées or :</label>
+    <input type="number" id="nbOr" formControlName="nbOr" min="0" />
+
+    <label for="nbArgent">Nombre de trophées argent :</label>
+    <input type="number" id="nbArgent" formControlName="nbArgent" min="0" />
+
+    <label for="nbBronze">Nombre de trophées bronze :</label>
+    <input type="number" id="nbBronze" formControlName="nbBronze" min="0" />
+
+    <label for="nbHeures">Nombre d’heures jouées :</label>
+    <input type="number" id="nbHeures" formControlName="nbHeures" min="0" />
+
+  </form>
+
+  <div class="button-group">
+    <button class="button" type="submit">Ajouter</button>
+    <a class="button retour-button" routerLink="/liste-trophees">Annuler</a>
+  </div>
+
+  @if (successMessage) {
+    <div style="color:green; margin-top:10px;">
+      {{ successMessage }}
+    </div>
+  }
+
+  @if (errorMessage) {
+    <div style="color:red; margin-top:10px;">
+      {{ errorMessage }}
+    </div>
+  }
+</div>
