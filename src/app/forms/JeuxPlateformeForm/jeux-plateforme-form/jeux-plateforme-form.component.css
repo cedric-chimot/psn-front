@@ -1,0 +1,88 @@
+body,
+html {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+}
+
+.form-container {
+  position: absolute; /* Position absolue pour fixer au centre */
+  top: 50%; /* Centrer verticalement */
+  left: 50%; /* Centrer horizontalement */
+  transform: translate(-50%, -50%); /* Ajuste pour un vrai centrage */
+  width: 400px; /* Largeur fixe du formulaire */
+  padding: 20px;
+  background-color: #f9f9f9;
+  border-radius: 10px;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+/* Espacement entre les éléments du formulaire */
+form div {
+  margin-bottom: 1rem;
+}
+
+/* Style pour les labels */
+label {
+  display: block;
+  font-weight: bold;
+}
+
+/* Style pour les champs de saisie et les sélecteurs */
+input,
+select {
+  width: 100%;
+  padding: 0.5rem;
+  margin-top: 0.5rem;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  box-sizing: border-box;
+}
+
+/* Groupement des boutons */
+.button-group {
+  display: flex;
+  align-items: center;
+  margin-top: 1rem;
+}
+
+/* Bouton centré */
+form button,
+.retour-button {
+  display: block; /* Permet de centrer avec margin */
+  margin: 0 auto; /* Centre horizontalement */
+  padding: 0.75rem 1.5rem;
+  border: none;
+  border-radius: 5px;
+  background-color: #04adbf;
+  color: whitesmoke;
+  text-transform: uppercase;
+  font-size: 1rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+form button:hover {
+  background-color: #04acbfbe;
+}
+
+/* Style du bouton "Retour" */
+.retour-button {
+  background-color: #dc3545;
+  color: whitesmoke;
+  text-decoration: none;
+}
+
+.retour-button:hover {
+  background-color: #dc3546b4;
+}
+
+/* Style pour le titre */
+h2 {
+  text-align: center;
+  margin-bottom: 20px;
+  font-size: 1.5rem;
+  color: #008080;
+  text-transform: uppercase;
+}
