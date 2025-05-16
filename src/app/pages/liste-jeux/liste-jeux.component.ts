@@ -7,11 +7,12 @@ import { PlateformeService } from '../../services/plateforme/plateforme.service'
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
 import { JeuxService } from '../../services/jeux/jeux.service';
+import { FormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-liste-jeux',
   standalone: true,
-  imports: [CommonModule, RouterModule],
+  imports: [CommonModule, RouterModule, FormsModule],
   templateUrl: './liste-jeux.component.html',
   styleUrls: ['./liste-jeux.component.css']
 })

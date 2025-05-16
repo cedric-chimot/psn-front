@@ -48,6 +48,7 @@ select {
 
 /* Bouton centré */
 form button,
+.add-button,
 .retour-button {
   display: block; /* Permet de centrer avec margin */
   margin: 0 auto; /* Centre horizontalement */
@@ -63,7 +64,7 @@ form button,
   transition: background-color 0.3s ease;
 }
 
-form button:hover {
+form .add-button:hover {
   background-color: #04acbfbe;
 }
 

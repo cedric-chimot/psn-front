@@ -1,60 +1,52 @@
 <div class="form-container">
   <form (ngSubmit)="onSubmit()">
+  <h2>Ajouter un jeu</h2>
 
-    <div formGroupName="jeu">
+    <div class="form-group">
       <label for="jeuName">Nom du jeu :</label>
-      <input id="jeuName" formControlName="jeu" />
-      @if (submitted && jeuPlateformeForm.get('jeu.jeu')?.invalid) {
-        <div style="color:red">
-          Le nom du jeu est obligatoire.
-        </div>
-      }
+      <input id="jeuName" name="jeuName" [(ngModel)]="jeuPlateforme.jeu.jeu" required />
+      <div *ngIf="submitted && !jeuPlateforme.jeu.jeu" style="color:red">
+        Le nom du jeu est obligatoire.
+      </div>
     </div>
 
-    <label for="idPlateforme">Plateforme :</label>
-    <select id="idPlateforme" formControlName="idPlateforme">
-      <option value="" disabled selected>-- Sélectionner une plateforme --</option>
-      @for (p of plateformes; track $index) {
-        <option [value]="p.id">{{ p.plateforme }}</option>
-      }
-    </select>
-    @if (submitted && jeuPlateformeForm.get('idPlateforme')?.invalid) {
-      <div style="color:red">
+    <div class="form-group">
+      <label for="idPlateforme">Plateforme :</label>
+      <select id="idPlateforme" name="idPlateforme" [(ngModel)]="jeuPlateforme.plateforme.id" required>
+        <option value="" disabled selected>-- Sélectionner une plateforme --</option>
+        <option *ngFor="let p of plateformes" [value]="p.id">{{ p.plateforme }}</option>
+      </select>
+      <div *ngIf="submitted && !jeuPlateforme.plateforme.id" style="color:red">
         La plateforme est obligatoire.
       </div>
-    }
+    </div>
 
     <label for="nbPlatine">Nombre de trophées platines :</label>
-    <input type="number" id="nbPlatine" formControlName="nbPlatine" min="0" />
+    <input type="number" id="nbPlatine" name="nbPlatine" min="0" [(ngModel)]="jeuPlateforme.nbPlatine" />
 
     <label for="nbOr">Nombre de trophées or :</label>
-    <input type="number" id="nbOr" formControlName="nbOr" min="0" />
+    <input type="number" id="nbOr" name="nbOr" min="0" [(ngModel)]="jeuPlateforme.nbOr" />
 
     <label for="nbArgent">Nombre de trophées argent :</label>
-    <input type="number" id="nbArgent" formControlName="nbArgent" min="0" />
+    <input type="number" id="nbArgent" name="nbArgent" min="0" [(ngModel)]="jeuPlateforme.nbArgent" />
 
     <label for="nbBronze">Nombre de trophées bronze :</label>
-    <input type="number" id="nbBronze" formControlName="nbBronze" min="0" />
+    <input type="number" id="nbBronze" name="nbBronze" min="0" [(ngModel)]="jeuPlateforme.nbBronze" />
 
     <label for="nbHeures">Temps de jeu prévisionnel :</label>
-    <input type="number" id="nbHeures" formControlName="nbHeures" min="0" />
+    <input type="number" id="nbHeures" name="nbHeures" min="0" [(ngModel)]="jeuPlateforme.nbHeures" />
 
+    <div class="button-group">
+      <button class="button add-button" type="submit">Ajouter</button>
+      <a class="button retour-button" routerLink="/home">Annuler</a>
+    </div>
   </form>
 
-  <div class="button-group">
-    <button class="button" type="submit">Ajouter</button>
-    <a class="button retour-button" routerLink="/liste-trophees">Annuler</a>
+  <div *ngIf="successMessage" style="color:green; margin-top:10px;">
+    {{ successMessage }}
   </div>
 
-  @if (successMessage) {
-    <div style="color:green; margin-top:10px;">
-      {{ successMessage }}
-    </div>
-  }
-
-  @if (errorMessage) {
-    <div style="color:red; margin-top:10px;">
-      {{ errorMessage }}
-    </div>
-  }
+  <div *ngIf="errorMessage" style="color:red; margin-top:10px;">
+    {{ errorMessage }}
+  </div>
 </div>
