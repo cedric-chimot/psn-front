@@ -26,6 +26,7 @@ form div {
 label {
   display: block;
   font-weight: bold;
+  margin-top: 10px;
 }
 
 /* Style pour les champs de saisie et les sélecteurs */
