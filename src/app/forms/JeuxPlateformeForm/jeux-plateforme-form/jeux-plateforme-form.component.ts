@@ -46,17 +46,21 @@ export class JeuxPlateformeFormComponent implements OnInit {
   onSubmit(): void {
     this.submitted = true;
 
-    if (!this.jeu.jeu || !this.jeu.plateforme || !this.jeu.plateforme.id) {
-      this.errorMessage = 'Merci de remplir les champs obligatoires.';
-      return;
-    }
+    if (this.jeu.jeu && this.jeu.plateforme && this.jeu.plateforme.id) {
+      const selectedPlateforme = this.plateformes.find(
+        (plateforme) => plateforme.id === this.jeu.plateforme!.id
+      );
 
-    const newJeu: Jeux = {
-        id: 0, // L'ID sera généré par le backend
+      if (!selectedPlateforme) {
+        this.errorMessage = 'Plateforme invalide.';
+        this.successMessage = '';
+        return;
+      }
+
+      const newJeu: Jeux = {
+        id: 0,
         jeu: this.jeu.jeu!,
-        plateforme: this.plateformes.find(
-          (plateforme) => plateforme.id === this.jeu.plateforme!.id
-        )!,
+        plateforme: selectedPlateforme,
         nbPlatine: this.jeu.nbPlatine!,
         nbOr: this.jeu.nbOr!,
         nbArgent: this.jeu.nbArgent!,
@@ -64,26 +68,29 @@ export class JeuxPlateformeFormComponent implements OnInit {
         nbHeures: this.jeu.nbHeures!
       };
 
-    this.errorMessage = '';
-    this.jeuxService.createJeu(newJeu).subscribe({
-      next: () => {
-        this.successMessage = 'Jeu ajouté avec succès !';
-        this.jeu = {
-          id: 0,
-          jeu: '',
-          plateforme: {} as Plateforme,
-          nbPlatine: 0,
-          nbOr: 0,
-          nbArgent: 0,
-          nbBronze: 0,
-          nbHeures: 0
-        };
-        this.submitted = false;
-      },
-      error: (err) => {
-        this.errorMessage = 'Erreur : ' + err.message;
-        this.successMessage = '';
-      }
-    });
+      this.errorMessage = '';
+      this.jeuxService.createJeu(newJeu).subscribe({
+        next: () => {
+          this.successMessage = 'Jeu ajouté avec succès !';
+          this.jeu = {
+            jeu: '',
+            plateforme: {} as Plateforme,
+            nbPlatine: 0,
+            nbOr: 0,
+            nbArgent: 0,
+            nbBronze: 0,
+            nbHeures: 0
+          };
+          this.submitted = false;
+        },
+        error: (err) => {
+          this.errorMessage = 'Erreur : ' + err.message;
+          this.successMessage = '';
+        }
+      });
+    } else {
+      this.errorMessage = 'Veuillez remplir tous les champs obligatoires.';
+      this.successMessage = '';
+    }
   }
 }

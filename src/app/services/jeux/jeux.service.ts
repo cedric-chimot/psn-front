@@ -13,7 +13,7 @@ export class JeuxService {
 
   // Ajouter un jeu
   createJeu(jeu: Jeux): Observable<Jeux> {
-    return this.http.post<Jeux>(this.apiUrl, jeu);
+    return this.http.post<Jeux>(`${this.apiUrl}/create`, jeu);
   }
 
   // Récupérer tous les jeux

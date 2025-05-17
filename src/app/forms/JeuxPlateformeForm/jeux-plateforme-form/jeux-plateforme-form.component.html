@@ -15,9 +15,9 @@
     <div class="form-group">
       <label for="idPlateforme">Plateforme :</label>
       <select id="idPlateforme" name="idPlateforme" [(ngModel)]="jeu.plateforme" required>
-        <option value="" disabled selected>-- Sélectionner une plateforme --</option>
+        <option [ngValue]="null" disabled selected>-- Sélectionner une plateforme --</option>
         @for (p of plateformes; track $index) {
-          <option [value]="p.id">{{ p.plateforme }}</option>
+          <option [ngValue]="p">{{ p.plateforme }}</option>
         }
       </select>
       @if (submitted && !jeu.plateforme) {
