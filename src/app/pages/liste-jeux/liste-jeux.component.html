@@ -20,12 +20,12 @@
             <th style="background-color: #008080; color: white; text-align: center;">Jeu</th>
             <th style="background-color: #008080; color: white; text-align: center;">Plateforme</th>
             <th style="background-color: #008080; color: white; text-align: center;">Action</th>
+            <th style="background-color: #008080; color: white; text-align: center;">Heures</th>
             <th style="background-color: #008080; color: white; text-align: center;">Platine</th>
             <th style="background-color: #008080; color: white; text-align: center;">Or</th>
             <th style="background-color: #008080; color: white; text-align: center;">Argent</th>
             <th style="background-color: #008080; color: white; text-align: center;">Bronze</th>
             <th style="background-color: #008080; color: white; text-align: center;">Total</th>
-            <th style="background-color: #008080; color: white; text-align: center;">Heures</th>
           </tr>
         </thead>
         <tbody>
@@ -41,12 +41,12 @@
                   <i class="fa-solid fa-trash"></i>
                 </button>
               </td>
+              <td>{{ jp.nbHeures }}</td>
               <td>{{ jp.nbPlatine }}</td>
               <td>{{ jp.nbOr }}</td>
               <td>{{ jp.nbArgent }}</td>
               <td>{{ jp.nbBronze }}</td>
               <td>{{ calculateTotal(jp) }}</td>
-              <td>{{ jp.nbHeures }}</td>
             </tr>
           }
           <tr style="font-weight: bold;">
