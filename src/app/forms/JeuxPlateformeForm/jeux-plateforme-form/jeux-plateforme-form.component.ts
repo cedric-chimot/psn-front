@@ -1,13 +1,15 @@
+import { Plateforme } from './../../../models/Plateforme';
 import { Component, OnInit } from '@angular/core';
-import { Plateforme } from '../../../models/Plateforme';
-import { JeuxPlateformeService } from '../../../services/jeuxPlateforme/jeux-plateforme.service';
+import { JeuxService } from '../../../services/jeux/jeux.service';
 import { PlateformeService } from '../../../services/plateforme/plateforme.service';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
 import { FormsModule } from '@angular/forms';
+import { Jeux } from '../../../models/Jeux';
 
 @Component({
   selector: 'app-jeux-plateforme-form',
+  standalone: true,
   imports: [CommonModule, RouterModule, FormsModule],
   templateUrl: './jeux-plateforme-form.component.html',
   styleUrls: ['./jeux-plateforme-form.component.css']
@@ -19,9 +21,9 @@ export class JeuxPlateformeFormComponent implements OnInit {
   successMessage = '';
   errorMessage = '';
 
-  jeuPlateforme: any = {
-    jeu: { id: null, jeu: '' },
-    plateforme: { id: null },
+  jeu: Partial<Jeux> = {
+    jeu: '',
+    plateforme: {} as Plateforme,
     nbPlatine: 0,
     nbOr: 0,
     nbArgent: 0,
@@ -30,7 +32,7 @@ export class JeuxPlateformeFormComponent implements OnInit {
   };
 
   constructor(
-    private jeuxPlateformeService: JeuxPlateformeService,
+    private jeuxService: JeuxService,
     private plateformeService: PlateformeService
   ) {}
 
@@ -44,18 +46,32 @@ export class JeuxPlateformeFormComponent implements OnInit {
   onSubmit(): void {
     this.submitted = true;
 
-    if (!this.jeuPlateforme.jeu.jeu || !this.jeuPlateforme.plateforme.id) {
+    if (!this.jeu.jeu || !this.jeu.plateforme || !this.jeu.plateforme.id) {
       this.errorMessage = 'Merci de remplir les champs obligatoires.';
       return;
     }
 
+    const newJeu: Jeux = {
+        id: 0, // L'ID sera généré par le backend
+        jeu: this.jeu.jeu!,
+        plateforme: this.plateformes.find(
+          (plateforme) => plateforme.id === this.jeu.plateforme!.id
+        )!,
+        nbPlatine: this.jeu.nbPlatine!,
+        nbOr: this.jeu.nbOr!,
+        nbArgent: this.jeu.nbArgent!,
+        nbBronze: this.jeu.nbBronze!,
+        nbHeures: this.jeu.nbHeures!
+      };
+
     this.errorMessage = '';
-    this.jeuxPlateformeService.createJeuxPlateforme(this.jeuPlateforme).subscribe({
+    this.jeuxService.createJeu(newJeu).subscribe({
       next: () => {
         this.successMessage = 'Jeu ajouté avec succès !';
-        this.jeuPlateforme = {
-          jeu: { id: null, jeu: '' },
-          plateforme: { id: null },
+        this.jeu = {
+          id: 0,
+          jeu: '',
+          plateforme: {} as Plateforme,
           nbPlatine: 0,
           nbOr: 0,
           nbArgent: 0,

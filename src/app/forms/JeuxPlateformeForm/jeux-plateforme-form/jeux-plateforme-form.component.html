@@ -4,8 +4,8 @@
 
     <div class="form-group">
       <label for="jeuName">Nom du jeu :</label>
-      <input id="jeuName" name="jeuName" [(ngModel)]="jeuPlateforme.jeu.jeu" required />
-      @if (submitted && !jeuPlateforme.jeu.jeu) {
+      <input id="jeuName" name="jeuName" [(ngModel)]="jeu.jeu" required />
+      @if (submitted && !jeu.jeu) {
         <div style="color:red">
           Le nom du jeu est obligatoire.
         </div>
@@ -14,13 +14,13 @@
 
     <div class="form-group">
       <label for="idPlateforme">Plateforme :</label>
-      <select id="idPlateforme" name="idPlateforme" [(ngModel)]="jeuPlateforme.plateforme.id" required>
+      <select id="idPlateforme" name="idPlateforme" [(ngModel)]="jeu.plateforme" required>
         <option value="" disabled selected>-- Sélectionner une plateforme --</option>
         @for (p of plateformes; track $index) {
           <option [value]="p.id">{{ p.plateforme }}</option>
         }
       </select>
-      @if (submitted && !jeuPlateforme.plateforme.id) {
+      @if (submitted && !jeu.plateforme) {
         <div style="color:red">
           La plateforme est obligatoire.
         </div>
@@ -28,19 +28,19 @@
     </div>
 
     <label for="nbPlatine">Nombre de trophées platine :</label>
-    <input type="number" id="nbPlatine" name="nbPlatine" min="0" [(ngModel)]="jeuPlateforme.nbPlatine" />
+    <input type="number" id="nbPlatine" name="nbPlatine" min="0" [(ngModel)]="jeu.nbPlatine" />
 
     <label for="nbOr">Nombre de trophées or :</label>
-    <input type="number" id="nbOr" name="nbOr" min="0" [(ngModel)]="jeuPlateforme.nbOr" />
+    <input type="number" id="nbOr" name="nbOr" min="0" [(ngModel)]="jeu.nbOr" />
 
     <label for="nbArgent">Nombre de trophées argent :</label>
-    <input type="number" id="nbArgent" name="nbArgent" min="0" [(ngModel)]="jeuPlateforme.nbArgent" />
+    <input type="number" id="nbArgent" name="nbArgent" min="0" [(ngModel)]="jeu.nbArgent" />
 
     <label for="nbBronze">Nombre de trophées bronze :</label>
-    <input type="number" id="nbBronze" name="nbBronze" min="0" [(ngModel)]="jeuPlateforme.nbBronze" />
+    <input type="number" id="nbBronze" name="nbBronze" min="0" [(ngModel)]="jeu.nbBronze" />
 
     <label for="nbHeures">Temps de jeu prévisionnel :</label>
-    <input type="number" id="nbHeures" name="nbHeures" min="0" [(ngModel)]="jeuPlateforme.nbHeures" />
+    <input type="number" id="nbHeures" name="nbHeures" min="0" [(ngModel)]="jeu.nbHeures" />
 
     <div class="button-group">
       <button class="button add-button" type="submit">Ajouter</button>
