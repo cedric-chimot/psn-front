@@ -29,9 +29,9 @@
           </tr>
         </thead>
         <tbody>
-          @for (jp of jeuxPlateformes; track $index) {
+          @for (jp of jeux; track $index) {
             <tr>
-              <td style="background-color: #008080; color: white;">{{ jp.jeu.jeu }}</td>
+              <td style="background-color: #008080; color: white;">{{ jp.jeu }}</td>
               <td>{{ jp.plateforme.plateforme }}</td>
               <td>
                 <button class="update">

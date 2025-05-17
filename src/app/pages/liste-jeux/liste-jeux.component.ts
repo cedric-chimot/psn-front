@@ -1,12 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-import { JeuxPlateforme } from '../../models/JeuxPlateforme';
 import { Jeux } from '../../models/Jeux';
 import { Plateforme } from '../../models/Plateforme';
-import { JeuxPlateformeService } from '../../services/jeuxPlateforme/jeux-plateforme.service';
+import { JeuxService } from '../../services/jeux/jeux.service';
 import { PlateformeService } from '../../services/plateforme/plateforme.service';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
-import { JeuxService } from '../../services/jeux/jeux.service';
 import { FormsModule } from '@angular/forms';
 
 @Component({
@@ -17,22 +15,15 @@ import { FormsModule } from '@angular/forms';
   styleUrls: ['./liste-jeux.component.css']
 })
 export class ListeJeuxComponent implements OnInit {
-  jeuxPlateformes: JeuxPlateforme[] = [];
   jeux: Jeux[] = [];
   plateformes: Plateforme[] = [];
 
   constructor(
-    private jpService: JeuxPlateformeService,
     private jeuxService: JeuxService,
     private plateformeService: PlateformeService
   ) {}
 
   ngOnInit(): void {
-    this.jpService.getAllJeuxPlateforme().subscribe({
-      next: (data) => this.jeuxPlateformes = data,
-      error: (err) => console.error('Erreur JP', err)
-    });
-
     this.jeuxService.getAllJeux().subscribe({
       next: (data: Jeux[]) => this.jeux = data,
       error: (err: any) => console.error('Erreur Jeux', err)
@@ -42,36 +33,35 @@ export class ListeJeuxComponent implements OnInit {
       next: (data) => this.plateformes = data,
       error: (err) => console.error('Erreur Plateformes', err)
     });
-    console.log(this.jeuxPlateformes);
   }
 
-  // Calculer le nombre total de trophées pour un jeu
-  calculateTotal(jp: any): number {
-    return jp.nbPlatine + jp.nbOr + jp.nbArgent + jp.nbBronze;
+  // Calcul du total de trophées pour un jeu
+  calculateTotal(jeu: Jeux): number {
+    return jeu.nbPlatine + jeu.nbOr + jeu.nbArgent + jeu.nbBronze;
   }
 
-  // Calcul des totaux pour chaque colonne
+  // Calculs des totaux globaux
   calculateTotalPlatine(): number {
-    return this.jeuxPlateformes.reduce((total, jp) => total + jp.nbPlatine, 0);
+    return this.jeux.reduce((total, jeu) => total + jeu.nbPlatine, 0);
   }
 
   calculateTotalOr(): number {
-    return this.jeuxPlateformes.reduce((total, jp) => total + jp.nbOr, 0);
+    return this.jeux.reduce((total, jeu) => total + jeu.nbOr, 0);
   }
 
   calculateTotalArgent(): number {
-    return this.jeuxPlateformes.reduce((total, jp) => total + jp.nbArgent, 0);
+    return this.jeux.reduce((total, jeu) => total + jeu.nbArgent, 0);
   }
 
   calculateTotalBronze(): number {
-    return this.jeuxPlateformes.reduce((total, jp) => total + jp.nbBronze, 0);
+    return this.jeux.reduce((total, jeu) => total + jeu.nbBronze, 0);
   }
 
   calculateTotalTrophees(): number {
-    return this.jeuxPlateformes.reduce((total, jp) => total + jp.nbPlatine + jp.nbOr + jp.nbArgent + jp.nbBronze, 0);
+    return this.jeux.reduce((total, jeu) => total + this.calculateTotal(jeu), 0);
   }
 
   calculateTotalHeures(): number {
-    return this.jeuxPlateformes.reduce((total, jp) => total + jp.nbHeures, 0);
+    return this.jeux.reduce((total, jeu) => total + jeu.nbHeures, 0);
   }
 }
