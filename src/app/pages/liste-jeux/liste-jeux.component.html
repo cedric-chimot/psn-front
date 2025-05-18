@@ -14,12 +14,29 @@
       </thead>
       <tbody>
         <tr>
-          <td colspan="2">{{ niveauActuel }}</td>
-          <td>{{ tropheesActuels.nbPlatine }}</td>
-          <td>{{ tropheesActuels.nbOr }}</td>
-          <td>{{ tropheesActuels.nbArgent }}</td>
-          <td>{{ tropheesActuels.nbBronze }}</td>
-          <td>{{ tropheesActuels.total }}</td>
+          <td style="font-weight: bold; text-align: center;" colspan="2">
+            <img src="spritePsnOr.png" alt="icone-trophee" style="width: 30px; height: 30px;">
+            {{ niveauActuel }}
+          </td>
+          <td style="font-weight: bold; text-align: center;">
+            <img src="platinePsn.png" alt="icone-trophee" style="width: 30px; height: 30px;">
+            {{ tropheesActuels.nbPlatine }}
+          </td>
+          <td style="font-weight: bold; text-align: center;">
+            <img src="orPsn.png" alt="icone-trophee" style="width: 30px; height: 35px;">
+            {{ tropheesActuels.nbOr }}
+          </td>
+          <td style="font-weight: bold; text-align: center;">
+            <img src="argentPsn.png" alt="icone-trophee" style="width: 30px; height: 35px;">
+            {{ tropheesActuels.nbArgent }}
+          </td>
+          <td style="font-weight: bold; text-align: center;">
+            <img src="bronzePsn.png" alt="icone-trophee" style="width: 28px; height: 35px;">
+            {{ tropheesActuels.nbBronze }}
+          </td>
+          <td style="font-weight: bold; text-align: center;">
+            {{ tropheesActuels.total }}
+          </td>
         </tr>
       </tbody>
     </table>
