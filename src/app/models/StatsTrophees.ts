@@ -7,6 +7,6 @@ export class StatsTrophees {
     public nbOr: number,
     public nbArgent: number,
     public nbBronze: number,
-    public idAnnee: Annee
+    public tropheeAnnee: Annee
   ) {}
 }
