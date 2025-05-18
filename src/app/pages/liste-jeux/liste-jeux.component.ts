@@ -93,4 +93,15 @@ export class ListeJeuxComponent implements OnInit {
   calculateTotalHeures(): number {
     return this.jeux.reduce((total, jeu) => total + jeu.nbHeures, 0);
   }
+
+  getTotalCumulTrophees() {
+    return {
+      platine: this.calculateTotalPlatine() + this.tropheesActuels.nbPlatine,
+      or: this.calculateTotalOr() + this.tropheesActuels.nbOr,
+      argent: this.calculateTotalArgent() + this.tropheesActuels.nbArgent,
+      bronze: this.calculateTotalBronze() + this.tropheesActuels.nbBronze,
+      total: this.calculateTotalTrophees() + this.tropheesActuels.total
+    };
+  }
+
 }

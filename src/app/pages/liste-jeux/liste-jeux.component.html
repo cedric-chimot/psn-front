@@ -99,6 +99,34 @@
             <td style="background-color: #008080; color: white; text-align: center;">{{ calculateTotalBronze() }}</td>
             <td style="background-color: #008080; color: white; text-align: center;">{{ calculateTotalTrophees() }}</td>
           </tr>
+          <tr style="font-weight: bold;">
+            <td colspan="4" style="background-color: #008080; color: white; text-align: center;">Total Actuel</td>
+            <td style="background-color: #008080; color: white; text-align: center;">{{ tropheesActuels.nbPlatine }}</td>
+            <td style="background-color: #008080; color: white; text-align: center;">{{ tropheesActuels.nbOr }}</td>
+            <td style="background-color: #008080; color: white; text-align: center;">{{ tropheesActuels.nbArgent }}</td>
+            <td style="background-color: #008080; color: white; text-align: center;">{{ tropheesActuels.nbBronze }}</td>
+            <td style="background-color: #008080; color: white; text-align: center;">{{ tropheesActuels.total }}</td>
+          </tr>
+          <tr style="font-weight: bold;">
+            <td colspan="4" style="background-color: #008080; color: white; text-align: center;">
+              Total Potentiel
+            </td>
+            <td style="background-color: #008080; color: white; text-align: center;">
+              {{ getTotalCumulTrophees().platine }}
+            </td>
+            <td style="background-color: #008080; color: white; text-align: center;">
+              {{ getTotalCumulTrophees().or }}
+            </td>
+            <td style="background-color: #008080; color: white; text-align: center;">
+              {{ getTotalCumulTrophees().argent }}
+            </td>
+            <td style="background-color: #008080; color: white; text-align: center;">
+              {{ getTotalCumulTrophees().bronze }}
+            </td>
+            <td style="background-color: #008080; color: white; text-align: center;">
+              {{ getTotalCumulTrophees().total }}
+            </td>
+          </tr>
         </tbody>
       </table>
     </div>
