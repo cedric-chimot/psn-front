@@ -6,6 +6,8 @@ import { PlateformeService } from '../../services/plateforme/plateforme.service'
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
 import { FormsModule } from '@angular/forms';
+import { StatsNiveauxService } from '../../services/statsNiveaux/stats-niveaux.service';
+import { StatsTropheesService } from '../../services/statsTrophees/stats-trophees.service';
 
 @Component({
   selector: 'app-liste-jeux',
@@ -17,10 +19,14 @@ import { FormsModule } from '@angular/forms';
 export class ListeJeuxComponent implements OnInit {
   jeux: Jeux[] = [];
   plateformes: Plateforme[] = [];
+  niveauActuel: number = 0;
+  tropheesActuels: any = {};
 
   constructor(
     private jeuxService: JeuxService,
-    private plateformeService: PlateformeService
+    private plateformeService: PlateformeService,
+    private statsNiveauxService: StatsNiveauxService,
+    private statsTropheesService: StatsTropheesService
   ) {}
 
   ngOnInit(): void {
@@ -32,6 +38,29 @@ export class ListeJeuxComponent implements OnInit {
     this.plateformeService.getAllPlateformes().subscribe({
       next: (data) => this.plateformes = data,
       error: (err) => console.error('Erreur Plateformes', err)
+    });
+    this.loadNiveauActuel();
+    this.loadTropheesActuels();
+  }
+
+  // Récupération des statistiques de niveaux pour l'année actuelle
+  loadNiveauActuel() {
+    this.statsNiveauxService.getAllStatsNiveaux().subscribe(stats => {
+      const anneeCourante = 6; // ID année 2025
+      const stat = stats.find(s => s.niveauAnnee.id === anneeCourante);
+      if (stat) this.niveauActuel = stat.niveau;
+    });
+  }
+
+  // Récupération des statistiques de trophées pour l'année actuelle
+  loadTropheesActuels() {
+    this.statsTropheesService.getAllStatsTrophees().subscribe(stats => {
+      const anneeCourante = 6; // ID année 2025
+      const stat = stats.find(s => s.tropheeAnnee.id === anneeCourante);
+      if (stat) {
+        const total = stat.nbPlatine + stat.nbOr + stat.nbArgent + stat.nbBronze;
+        this.tropheesActuels = { ...stat, total };
+      }
     });
   }
 

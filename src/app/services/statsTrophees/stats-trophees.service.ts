@@ -7,7 +7,7 @@ import { StatsTrophees } from '../../models/StatsTrophees';
   providedIn: 'root'
 })
 export class StatsTropheesService {
-  private apiUrl = 'http://localhost:8080/api/statsTrophees';
+  private apiUrl = 'http://localhost:8081/api/statsTrophees';
 
   constructor(private http: HttpClient) { }
 

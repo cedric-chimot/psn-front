@@ -1,5 +1,29 @@
 <div class="container mt-4">
   <h2>Trophées potentiels jeux PS4/PS5</h2>
+  <div class="table-responsive">
+    <table class="table table-bordered text-center mb-0">
+      <thead>
+        <tr>
+          <th colspan="2" style="background-color: #008080; color: white; text-align: center;">NIVEAU ACTUEL</th>
+          <th style="background-color: #008080; color: white; text-align: center;">PLATINE</th>
+          <th style="background-color: #008080; color: white; text-align: center;">OR</th>
+          <th style="background-color: #008080; color: white; text-align: center;">ARGENT</th>
+          <th style="background-color: #008080; color: white; text-align: center;">BRONZE</th>
+          <th style="background-color: #008080; color: white; text-align: center;">TOTAL</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td colspan="2">{{ niveauActuel }}</td>
+          <td>{{ tropheesActuels.nbPlatine }}</td>
+          <td>{{ tropheesActuels.nbOr }}</td>
+          <td>{{ tropheesActuels.nbArgent }}</td>
+          <td>{{ tropheesActuels.nbBronze }}</td>
+          <td>{{ tropheesActuels.total }}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
 
   <div class="d-flex align-items-start mt-3">
     <!-- Colonne gauche avec les boutons -->
