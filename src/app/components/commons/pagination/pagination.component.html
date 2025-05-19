@@ -1,1 +1,44 @@
-<p>pagination works!</p>
+<nav>
+  <ul class="pagination justify-content-center">
+    <li class="page-item" [class.disabled]="currentPage === 1">
+      <button
+        class="page-link"
+        [ngStyle]="{
+          'background-color': currentPage > 1 ? '#008080' : '#e5f2f2',
+          'color': currentPage > 1 ? 'white' : '#008080'
+        }"
+        (click)="goToPage(currentPage - 1)"
+        [disabled]="currentPage === 1"
+      >
+        Précédent
+      </button>
+    </li>
+    @for (page of pageNumbers; track $index) {
+      <li class="page-item" [class.active]="currentPage === page">
+        <button
+          class="page-link"
+          [ngStyle]="{
+            'background-color': currentPage === page ? '#008080' : '#e5f2f2',
+            'color': currentPage === page ? 'white' : '#008080'
+          }"
+          (click)="goToPage(page)"
+        >
+          {{ page }}
+        </button>
+      </li>
+    }
+    <li class="page-item" [class.disabled]="currentPage === pageNumbers.length">
+      <button
+        class="page-link"
+        [ngStyle]="{
+          'background-color': currentPage < pageNumbers.length ? '#008080' : '#e5f2f2',
+          'color': currentPage < pageNumbers.length ? 'white' : '#008080'
+        }"
+        (click)="goToPage(currentPage + 1)"
+        [disabled]="currentPage === pageNumbers.length"
+      >
+        Suivant
+      </button>
+    </li>
+  </ul>
+</nav>
