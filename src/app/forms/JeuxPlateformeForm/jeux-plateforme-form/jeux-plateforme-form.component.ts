@@ -1,5 +1,5 @@
 import { Plateforme } from './../../../models/Plateforme';
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { JeuxService } from '../../../services/jeux/jeux.service';
 import { PlateformeService } from '../../../services/plateforme/plateforme.service';
 import { CommonModule } from '@angular/common';
@@ -30,6 +30,9 @@ export class JeuxPlateformeFormComponent implements OnInit {
     nbBronze: 0,
     nbHeures: 0
   };
+  
+  // Événement pour fermer le modal
+  @Output() close = new EventEmitter<void>();
 
   constructor(
     private jeuxService: JeuxService,
@@ -92,5 +95,10 @@ export class JeuxPlateformeFormComponent implements OnInit {
       this.errorMessage = 'Veuillez remplir tous les champs obligatoires.';
       this.successMessage = '';
     }
+  }
+
+  // Méthode pour fermer le modal
+  closeModal() {
+    this.close.emit(); // Envoie un signal au parent pour fermer le modal
   }
 }

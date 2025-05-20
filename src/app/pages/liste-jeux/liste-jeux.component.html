@@ -137,7 +137,7 @@
   </div>
 
   <div style="display: flex; justify-content: center; margin-top: 15px;">
-    <button class="btn add" routerLink="/ajout-form">Ajouter</button>
+    <button class="btn add" (click)="openAddModal()">Ajouter</button>
   </div>
 
   @if (allJeuxList.length > 5) {
@@ -147,4 +147,13 @@
       (pageChange)="goToPage($event)"
     ></app-pagination>
   }
+
+  @if (isAddModalOpen) {
+    <div class="modal">
+      <div class="modal-overlay">
+        <app-jeux-plateforme-form (close)="closeModal()"></app-jeux-plateforme-form>
+      </div>
+    </div>
+  }
+
 </div>

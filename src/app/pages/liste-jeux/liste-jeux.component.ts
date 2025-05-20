@@ -9,11 +9,12 @@ import { FormsModule } from '@angular/forms';
 import { StatsNiveauxService } from '../../services/statsNiveaux/stats-niveaux.service';
 import { StatsTropheesService } from '../../services/statsTrophees/stats-trophees.service';
 import { PaginationComponent } from "../../components/commons/pagination/pagination.component";
+import { JeuxPlateformeFormComponent } from "../../forms/JeuxPlateformeForm/jeux-plateforme-form/jeux-plateforme-form.component";
 
 @Component({
   selector: 'app-liste-jeux',
   standalone: true,
-  imports: [CommonModule, RouterModule, FormsModule, PaginationComponent],
+  imports: [CommonModule, RouterModule, FormsModule, PaginationComponent, JeuxPlateformeFormComponent],
   templateUrl: './liste-jeux.component.html',
   styleUrls: ['./liste-jeux.component.css']
 })
@@ -26,6 +27,7 @@ export class ListeJeuxComponent implements OnInit {
   jeuxList: any[] = [];
   jeuxPerPage: number = 6;
   currentPage: number = 1;
+  isAddModalOpen = false;
 
   constructor(
     private jeuxService: JeuxService,
@@ -84,6 +86,16 @@ export class ListeJeuxComponent implements OnInit {
     const startIndex = (this.currentPage - 1) * this.jeuxPerPage;
     const endIndex = startIndex + this.jeuxPerPage;
     this.jeuxList = this.allJeuxList.slice(startIndex, endIndex);
+  }
+
+  // Méthode pour ouvrir le modal d'ajout
+  openAddModal(): void {
+    this.isAddModalOpen = true;
+  }
+
+  // Fermer le modal
+  closeModal(): void {
+    this.isAddModalOpen = false;
   }
 
   // Méthode pour changer de page
