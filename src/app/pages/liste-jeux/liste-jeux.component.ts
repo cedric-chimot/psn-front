@@ -94,6 +94,17 @@ export class ListeJeuxComponent implements OnInit {
     this.isAddModalOpen = true;
   }
 
+  // Méthode pour rafraîchir la liste des jeux après ajout
+  refresh(): void {
+    this.jeuxService.getAllJeux().subscribe({
+      next: (data: Jeux[]) => {
+        this.allJeuxList = data;
+        this.updatePage();
+      },
+      error: (err: any) => console.error('Erreur lors du rafraîchissement des jeux', err)
+    });
+  }
+
   // Fermer le modal
   closeModal(): void {
     this.isAddModalOpen = false;

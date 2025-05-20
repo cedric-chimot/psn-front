@@ -45,7 +45,7 @@
   <div class="d-flex align-items-start mt-3">
 
     <app-boutons-navigation></app-boutons-navigation>
-    
+
     @if (jeuxList.length > 0) {
       <!-- Tableau à droite -->
       <div class="flex-grow-1">
@@ -144,7 +144,10 @@
   @if (isAddModalOpen) {
     <div class="modal">
       <div class="modal-overlay">
-        <app-jeux-plateforme-form (close)="closeModal()"></app-jeux-plateforme-form>
+        <app-jeux-plateforme-form
+          (close)="closeModal()"
+          (jeuCree)="refresh()"
+        ></app-jeux-plateforme-form>
       </div>
     </div>
   }

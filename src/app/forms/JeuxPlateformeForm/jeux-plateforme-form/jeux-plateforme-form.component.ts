@@ -30,9 +30,12 @@ export class JeuxPlateformeFormComponent implements OnInit {
     nbBronze: 0,
     nbHeures: 0
   };
-  
+
   // Événement pour fermer le modal
   @Output() close = new EventEmitter<void>();
+
+  // Événement pour rafraichir la page quand le jeu a été créé
+  @Output() jeuCree = new EventEmitter<void>();
 
   constructor(
     private jeuxService: JeuxService,
@@ -75,6 +78,9 @@ export class JeuxPlateformeFormComponent implements OnInit {
       this.jeuxService.createJeu(newJeu).subscribe({
         next: () => {
           this.successMessage = 'Jeu ajouté avec succès !';
+
+          this.jeuCree.emit(); // Émet l'événement pour rafraichir la page
+
           this.jeu = {
             jeu: '',
             plateforme: {} as Plateforme,
