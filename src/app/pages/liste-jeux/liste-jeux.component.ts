@@ -10,11 +10,12 @@ import { StatsNiveauxService } from '../../services/statsNiveaux/stats-niveaux.s
 import { StatsTropheesService } from '../../services/statsTrophees/stats-trophees.service';
 import { PaginationComponent } from "../../components/commons/pagination/pagination.component";
 import { JeuxPlateformeFormComponent } from "../../forms/JeuxPlateformeForm/jeux-plateforme-form/jeux-plateforme-form.component";
+import { BoutonsNavigationComponent } from "../../components/commons/boutons-navigation/boutons-navigation.component";
 
 @Component({
   selector: 'app-liste-jeux',
   standalone: true,
-  imports: [CommonModule, RouterModule, FormsModule, PaginationComponent, JeuxPlateformeFormComponent],
+  imports: [CommonModule, RouterModule, FormsModule, PaginationComponent, JeuxPlateformeFormComponent, BoutonsNavigationComponent],
   templateUrl: './liste-jeux.component.html',
   styleUrls: ['./liste-jeux.component.css']
 })
