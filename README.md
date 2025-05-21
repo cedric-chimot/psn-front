@@ -6,9 +6,9 @@
 
 _La liste des trophées potentiels :_
 
-![Capture d'écran 2025-05-21 201328](https://github.com/user-attachments/assets/6747a4a2-e426-4b6a-97e6-d1a7ececfb51)
+![Capture d'écran 2025-05-21 201328](https://github.com/user-attachments/assets/d07a8f8a-0622-4352-963d-c7cd0cadc950)
 
-![Capture d'écran 2025-05-21 201441](https://github.com/user-attachments/assets/dfdd57af-e73c-49da-bd73-22d6e1ad2b13)
+![Capture d'écran 2025-05-21 201441](https://github.com/user-attachments/assets/877fbe16-ee28-4a4e-847b-2736f4c9c819)
 
 _La page stats :_
 
