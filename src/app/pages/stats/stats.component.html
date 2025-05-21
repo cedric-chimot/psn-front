@@ -1,1 +1,60 @@
-<app-boutons-navigation></app-boutons-navigation>
+<div class="container mt-4">
+  <h2>Rapport trophées gagnés sur 1 an</h2>
+
+  <div class="d-flex align-items-start mt-4 mb-4">
+    <app-boutons-navigation></app-boutons-navigation>
+    <table class="table table-bordered table-striped">
+      <thead>
+        <tr>
+          <th style="background-color: #008080; color: white; text-align: center;">ANNÉES / TROPHÉES</th>
+          <th style="background-color: #008080; color: white; text-align: center;">PLATINE</th>
+          <th style="background-color: #008080; color: white; text-align: center;">OR</th>
+          <th style="background-color: #008080; color: white; text-align: center;">ARGENT</th>
+          <th style="background-color: #008080; color: white; text-align: center;">BRONZE</th>
+          <th style="background-color: #008080; color: white; text-align: center;">TOTAL</th>
+        </tr>
+      </thead>
+      <tbody>
+        @for (stat of statsTrophees; track $index) {
+          <tr>
+            <td style="background-color: #008080; color: white; text-align: center; font-weight: bold;">
+              TOTAL {{ stat.tropheeAnnee.annee }}
+            </td>
+            <td style="color: #63c8f0; font-weight: bold;">{{ stat.nbPlatine }}</td>
+            <td style="color: #FFD700; font-weight: bold;">{{ stat.nbOr }}</td>
+            <td style="color: #c0c0c0; font-weight: bold;">{{ stat.nbArgent }}</td>
+            <td style="color: #cd7f32; font-weight: bold;">{{ stat.nbBronze }}</td>
+            <td style="color: #0f52ba; font-weight: bold;">{{ calculateTotal(stat) }}</td>
+          </tr>
+        }
+        <tr>
+          <th colspan="6" style="background-color: #008080; color: white; text-align: center; text-transform: uppercase;">
+            Trophées gagnés par an
+          </th>
+        </tr>
+        @for (stat of getTropheesGagnesParAnnee(); track $index) {
+          <tr>
+            <td style="background-color: #008080; color: white; text-align: center; font-weight: bold;">
+              Trophées gagnés en {{ getAnneeFromId(stat.tropheeAnnee.id) }}
+            </td>
+            <td [style.color]="getCouleurFondParAnnee(getAnneeFromId(stat.tropheeAnnee.id))" style="font-weight: bold;">
+              {{ stat.nbPlatine }}
+            </td>
+            <td [style.color]="getCouleurFondParAnnee(getAnneeFromId(stat.tropheeAnnee.id))" style="font-weight: bold;">
+              {{ stat.nbOr }}
+            </td>
+            <td [style.color]="getCouleurFondParAnnee(getAnneeFromId(stat.tropheeAnnee.id))" style="font-weight: bold;">
+              {{ stat.nbArgent }}
+            </td>
+            <td [style.color]="getCouleurFondParAnnee(getAnneeFromId(stat.tropheeAnnee.id))" style="font-weight: bold;">
+              {{ stat.nbBronze }}
+            </td>
+            <td [style.color]="getCouleurFondParAnnee(getAnneeFromId(stat.tropheeAnnee.id))" style="font-weight: bold;">
+              {{ calculateTotal(stat) }}
+            </td>
+          </tr>
+        }
+      </tbody>
+    </table>
+  </div>
+</div>

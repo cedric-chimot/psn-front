@@ -7,13 +7,13 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class AnneeService {
-  private apiUrl = 'http://localhost:8080/api/annee';
+  private apiUrl = 'http://localhost:8081/api/annees';
 
   constructor(private http: HttpClient) { }
 
   // Ajouter une année
   createAnnee(annee: Annee): Observable<Annee> {
-    return this.http.post<Annee>(this.apiUrl, annee);
+    return this.http.post<Annee>(`${this.apiUrl}/create`, annee);
   }
 
   // Récupérer toutes les années
