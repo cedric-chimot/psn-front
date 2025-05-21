@@ -10,6 +10,10 @@ _La liste des trophées potentiels :_
 
 ![Capture d'écran 2025-05-21 201441](https://github.com/user-attachments/assets/dfdd57af-e73c-49da-bd73-22d6e1ad2b13)
 
+_La page stats :_
+
+![Capture d'écran 2025-05-21 202353](https://github.com/user-attachments/assets/830aba9c-a867-46da-a5af-70dd43b54485)
+
 
 ### 🔗 Liens
 
