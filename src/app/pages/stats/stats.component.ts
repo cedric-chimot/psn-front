@@ -8,10 +8,11 @@ import { StatsTropheesService } from '../../services/statsTrophees/stats-trophee
 import { AnneeService } from '../../services/annee/annee.service';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
+import { RouterModule } from '@angular/router';
 
 @Component({
   selector: 'app-stats',
-  imports: [BoutonsNavigationComponent, CommonModule, FormsModule],
+  imports: [BoutonsNavigationComponent, CommonModule, FormsModule, RouterModule],
   templateUrl: './stats.component.html',
   styleUrls: ['./stats.component.css']
 })
