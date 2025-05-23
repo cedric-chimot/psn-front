@@ -82,21 +82,10 @@ tbody tr:hover {
 }
 
 .button-trophees:hover,
-.button-niveaux:hover {
+.button-niveaux:hover,
+.button-modifier:hover {
   transform: scale(1.1);
   opacity: 0.9;
-}
-
-.btn-liste {
-  background-color: #0f52ba;
-  color: whitesmoke;
-  border: none;
-}
-
-.btn-stats {
-  background-color: #A9C5D3;
-  color: black;
-  border: none;
 }
 
 .button-trophees {
