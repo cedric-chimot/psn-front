@@ -8,7 +8,9 @@
   }
 
   <div class="d-flex align-items-start mt-4 mb-4">
+
     <app-boutons-navigation></app-boutons-navigation>
+
     @if (vueActive === 'trophees') {
       <table class="table table-bordered table-striped">
         <thead>
@@ -34,14 +36,11 @@
               <td style="color: #cd7f32; font-weight: bold;">{{ stat.nbBronze }}</td>
               <td style="color: #0f52ba; font-weight: bold;">{{ calculateTotal(stat) }}</td>
               @if (stat.tropheeAnnee.annee === dernierAnnee) {
-                <td>
+                <td [attr.rowspan]="statsTrophees.length" style="text-align: center; vertical-align: middle;">
                   <button class="button-modifier" (click)="openTropheeModal(stat)">
                     <i class="fa-solid fa-pen-nib"></i>
                   </button>
                 </td>
-              }
-              @if (stat.tropheeAnnee.annee !== dernierAnnee) {
-                <td></td>
               }
             </tr>
           }
@@ -111,6 +110,7 @@
       </table>
     }
   </div>
+
   <div class="mt-4 text-center">
     <button class="button-road me-4" routerLink="/road-to-10K">
       Road to 10K

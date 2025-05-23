@@ -82,7 +82,7 @@ tbody tr:hover {
   transition: all 0.3s ease;
 }
 
-.button-road,
+.button-road:hover,
 .button-trophees:hover,
 .button-niveaux:hover,
 .button-modifier:hover {
