@@ -18,6 +18,11 @@ _La page stats niveaux :_
 
 ![Capture d'écran 2025-05-23 222728](https://github.com/user-attachments/assets/6434d594-5bd2-417f-ad37-9b602f4ec26a)
 
+_Formulaire pour modifier les stats :_
+
+![Capture d'écran 2025-05-23 222944](https://github.com/user-attachments/assets/1c2c46ab-05aa-4b2c-915e-05956b66ad06)
+
+
 ### 🔗 Liens
 
 **[Backend Repository](https://github.com/cedric-chimot/psn-back)** : Le lien vers le repository GitHub contenant le code backend.
