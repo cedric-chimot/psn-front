@@ -14,6 +14,9 @@ _La page stats trophées :_
 
 ![Capture d'écran 2025-05-23 222653](https://github.com/user-attachments/assets/5116b81b-96bf-4c4d-b47c-a0ab74072d99)
 
+_La page stats niveaux :_
+
+![Capture d'écran 2025-05-23 222728](https://github.com/user-attachments/assets/6434d594-5bd2-417f-ad37-9b602f4ec26a)
 
 ### 🔗 Liens
 
