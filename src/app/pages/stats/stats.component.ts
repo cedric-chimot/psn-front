@@ -19,6 +19,11 @@ export class StatsComponent implements OnInit {
   annees: Annee[] = [];
   niveauActuel: number = 0;
   vueActive: 'trophees' | 'niveaux' = 'trophees';
+  isTropheesModalOpen = false;
+  isNiveauxModalOpen = false;
+
+  selectedTropheesAnneeForEdit: StatsTrophees | null = null;
+  selectedNiveauxAnneeForEdit: StatsNiveaux | null = null;
 
   constructor(
     private statsNiveauxService: StatsNiveauxService,
@@ -120,6 +125,43 @@ export class StatsComponent implements OnInit {
       return annee.annee.split(' ').pop() || '';
     }
     return '';
+  }
+
+  // Méthode pour ouvrir le modal
+  openTropheeModal(trophees: StatsTrophees): void {
+    // Copie complète pour la modification
+    this.selectedTropheesAnneeForEdit = { ...trophees } as unknown as StatsTrophees;
+
+    // Vérifie si une année est liée aux statistiques
+    if (this.selectedTropheesAnneeForEdit.tropheeAnnee && this.selectedTropheesAnneeForEdit.tropheeAnnee.id) {
+      this.selectedTropheesAnneeForEdit.tropheeAnnee = this.selectedTropheesAnneeForEdit.tropheeAnnee;
+      this.isTropheesModalOpen = true; // Ouvre le modal après avoir récupéré les détails
+    } else {
+      console.error('Statistiques invalides ou non définies pour cette année');
+      this.isTropheesModalOpen = true;
+    }
+  }
+
+  // Méthode pour mettre à jour les statistiques de trophées d'une année
+  updateTrophees(): void {
+    if (this.selectedTropheesAnneeForEdit) {
+      // Création d'un objet qui ne contiendra que les champs modifiés
+      const updatedPokemon: any = {
+        id: this.selectedTropheesAnneeForEdit.id,
+        nbPlatine: this.selectedTropheesAnneeForEdit.nbPlatine,
+        nbOr: this.selectedTropheesAnneeForEdit.nbOr,
+        nbArgent: { id: this.selectedTropheesAnneeForEdit.nbArgent },
+        nbBronze: { id: this.selectedTropheesAnneeForEdit.nbBronze },
+      };
+
+      this.statsTropheesService.updateStatsTrophees(updatedPokemon).subscribe({
+        next: () => {
+          this.getTropheesGagnesParAnnee(); // Rafraîchit les données après mise à jour
+          this.isTropheesModalOpen = false; // Ferme le modal
+        },
+        error: (err) => console.error('Erreur lors de la mise à jour du Pokémon :', err),
+      });
+    }
   }
 
   // Récupération de la couleur de fond en fonction de l'année
