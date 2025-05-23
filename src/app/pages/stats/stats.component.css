@@ -60,7 +60,8 @@ tbody tr:hover {
 }
 
 .button-trophees,
-.button-niveaux {
+.button-niveaux,
+.button-modifier {
   width: 100%;
   max-width: 180px;
   padding: 15px 15px;
@@ -72,7 +73,8 @@ tbody tr:hover {
 }
 
 .button-trophees:hover,
-.button-niveaux:hover {
+.button-niveaux:hover,
+.button-modifier:hover {
   transform: scale(1.1);
   opacity: 0.9;
 }
@@ -98,5 +100,11 @@ tbody tr:hover {
 .button-niveaux {
   background-color: #800080;
   color: white;
+  border: none;
+}
+
+.button-modifier {
+  background-color: #04adbf;
+  color: whitesmoke;
   border: none;
 }
