@@ -1,0 +1,88 @@
+<div class="container mt-4">
+  <h2>TROPHÉES "POTENTIELS" ROAD TO 10K</h2>
+
+  <app-boutons-navigation></app-boutons-navigation>
+
+  <div class="table-responsive">
+    <table class="table table-bordered text-center mb-0">
+      <thead>
+        <tr>
+          <th colspan="2" style="background-color: #008080; color: white; text-align: center;">NIVEAU POTENTIEL</th>
+          <th style="background-color: #008080; color: white; text-align: center;">PLATINE</th>
+          <th style="background-color: #008080; color: white; text-align: center;">OR</th>
+          <th style="background-color: #008080; color: white; text-align: center;">ARGENT</th>
+          <th style="background-color: #008080; color: white; text-align: center;">BRONZE</th>
+          <th style="background-color: #008080; color: white; text-align: center;">TOTAL</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr style="font-weight: bold; background-color: #d9fdd3;">
+          <td colspan="2" style="text-align: center;">
+            <img src="spritePsnOr.png" alt="icone-trophee" style="width: 30px; height: 30px;">
+            608
+          </td>
+          <td style="text-align: center;">
+            <img src="platinePsn.png" alt="icone-trophee" style="width: 30px; height: 30px;">
+            {{ niveauPotentielPlatine }}
+          </td>
+          <td style="text-align: center;">
+            <img src="orPsn.png" alt="icone-trophee" style="width: 30px; height: 35px;">
+            {{ niveauPotentielOr }}
+          </td>
+          <td style="text-align: center;">
+            <img src="argentPsn.png" alt="icone-trophee" style="width: 30px; height: 35px;">
+            {{ niveauPotentielArgent }}
+          </td>
+          <td style="text-align: center;">
+            <img src="bronzePsn.png" alt="icone-trophee" style="width: 28px; height: 35px;">
+            {{ niveauPotentielBronze }}
+          </td>
+          <td style="text-align: center;">{{ niveauPotentielTotal }}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <table class="table table-bordered table-striped mt-3">
+    <thead>
+      <tr>
+        <th style="background-color: #008080; color: white; text-align: center;">JEUX</th>
+        <th style="background-color: #008080; color: white; text-align: center;">HEURES</th>
+        <th style="background-color: #008080; color: white; text-align: center;">PLATINE</th>
+        <th style="background-color: #008080; color: white; text-align: center;">OR</th>
+        <th style="background-color: #008080; color: white; text-align: center;">ARGENT</th>
+        <th style="background-color: #008080; color: white; text-align: center;">BRONZE</th>
+        <th style="background-color: #008080; color: white; text-align: center;">TOTAL</th>
+      </tr>
+    </thead>
+    <tbody>
+      @for (jeu of jeuxDisponibles; track $index) {
+        <tr>
+          <td style="background-color: #008080; color: white; text-align: center;">{{ jeu.nom }}</td>
+          <td style="color: #dc3545; font-weight: bold;">{{ jeu.heures }}</td>
+          <td style="color: #63c8f0; font-weight: bold;">{{ jeu.platine }}</td>
+          <td style="color: #FFD700; font-weight: bold;">{{ jeu.or }}</td>
+          <td style="color: #c0c0c0; font-weight: bold;">{{ jeu.argent }}</td>
+          <td style="color: #cd7f32; font-weight: bold;">{{ jeu.bronze }}</td>
+          <td style="color: #0f52ba; font-weight: bold;">{{ jeu.total }}</td>
+        </tr>
+      }
+      <tr style="background-color: #008080; color: white; text-align: center;">
+        <td style="background-color: #008080; color: white; text-align: center; font-weight: bold;">TOTAL</td>
+        <td style="background-color: #008080; color: white; text-align: center; font-weight: bold;">{{ totalHeures }}</td>
+        <td style="background-color: #008080; color: white; text-align: center; font-weight: bold;">{{ totalPlatine }}</td>
+        <td style="background-color: #008080; color: white; text-align: center; font-weight: bold;">{{ totalOr }}</td>
+        <td style="background-color: #008080; color: white; text-align: center; font-weight: bold;">{{ totalArgent }}</td>
+        <td style="background-color: #008080; color: white; text-align: center; font-weight: bold;">{{ totalBronze }}</td>
+        <td style="background-color: #008080; color: white; text-align: center; font-weight: bold;">{{ totalGeneral }}</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div style="margin-top: 1rem;">
+    <strong>Total actuel :</strong> {{ niveauActuel.total }}<br>
+    <strong>Objectif :</strong> {{ objectif }}<br>
+    <strong>Objectif restant :</strong> {{ objectifRestant }}
+  </div>
+
+</div>
