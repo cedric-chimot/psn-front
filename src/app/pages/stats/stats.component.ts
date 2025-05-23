@@ -18,11 +18,13 @@ export class StatsComponent implements OnInit {
   statsNiveaux: StatsNiveaux[] = [];
   annees: Annee[] = [];
   niveauActuel: number = 0;
+  vueActive: 'trophees' | 'niveaux' = 'trophees';
 
   constructor(
-      private statsNiveauxService: StatsNiveauxService,
-      private statsTropheesService: StatsTropheesService,
-      private anneeService: AnneeService) {}
+    private statsNiveauxService: StatsNiveauxService,
+    private statsTropheesService: StatsTropheesService,
+    private anneeService: AnneeService
+  ) {}
 
   ngOnInit(): void {
     this.loadStatsTrophees();
@@ -115,6 +117,11 @@ export class StatsComponent implements OnInit {
   // Calcul du total de trophées par années
   calculateTotal(statsTrophees: StatsTrophees): number {
     return statsTrophees.nbPlatine + statsTrophees.nbOr + statsTrophees.nbArgent + statsTrophees.nbBronze;
+  }
+
+  // Changer la vue active
+  changerVue(type: 'trophees' | 'niveaux') {
+    this.vueActive = type;
   }
 
 }
