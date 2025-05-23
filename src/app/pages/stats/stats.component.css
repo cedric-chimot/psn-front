@@ -58,3 +58,45 @@ th, td {
 tbody tr:hover {
   background-color: #d0e3d0;
 }
+
+.button-trophees,
+.button-niveaux {
+  width: 100%;
+  max-width: 180px;
+  padding: 15px 15px;
+  font-size: 0.9rem;
+  text-align: center;
+  text-transform: uppercase;
+  border-radius: 8px;
+  transition: all 0.3s ease;
+}
+
+.button-trophees:hover,
+.button-niveaux:hover {
+  transform: scale(1.1);
+  opacity: 0.9;
+}
+
+.btn-liste {
+  background-color: #0f52ba;
+  color: whitesmoke;
+  border: none;
+}
+
+.btn-stats {
+  background-color: #A9C5D3;
+  color: black;
+  border: none;
+}
+
+.button-trophees {
+  background-color: #FF0066;
+  color: whitesmoke;
+  border: none;
+}
+
+.button-niveaux {
+  background-color: #800080;
+  color: white;
+  border: none;
+}
