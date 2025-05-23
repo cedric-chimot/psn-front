@@ -91,6 +91,26 @@ export class StatsComponent implements OnInit {
     return result;
   }
 
+  // Calcul du total de niveaux gagnés par année
+  getNiveauxGagnesParAnnee(): StatsNiveaux[] {
+    const sortedStats = [...this.statsNiveaux].sort((a, b) => b.niveauAnnee.id - a.niveauAnnee.id);
+
+    const result: StatsNiveaux[] = [];
+
+    for (let i = 0; i < sortedStats.length - 1; i++) {
+      const anneeActuelle = sortedStats[i];
+      const anneePrecedente = sortedStats[i + 1];
+
+      result.push({
+        id: 0,
+        niveauAnnee: anneeActuelle.niveauAnnee,
+        niveau: anneeActuelle.niveau - anneePrecedente.niveau
+      });
+    }
+
+    return result;
+  }
+
   // Récupération de l'année à partir de l'ID
   // On suppose que l'année est toujours la dernière partie de la chaîne
   getAnneeFromId(id: number): string {

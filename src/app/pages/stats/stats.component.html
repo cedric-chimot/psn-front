@@ -1,5 +1,11 @@
 <div class="container mt-4">
-  <h2>Rapport trophées gagnés sur 1 an</h2>
+  @if (vueActive === 'trophees') {
+    <h2>Rapport trophées gagnés sur 1 an</h2>
+  }
+
+  @if (vueActive === 'niveaux') {
+    <h2>Rapport niveaux gagnés sur 1 an</h2>
+  }
 
   <div class="d-flex align-items-start mt-4 mb-4">
     <app-boutons-navigation></app-boutons-navigation>
@@ -52,6 +58,41 @@
               </td>
               <td [style.color]="getCouleurFondParAnnee(getAnneeFromId(stat.tropheeAnnee.id))" style="font-weight: bold;">
                 {{ calculateTotal(stat) }}
+              </td>
+            </tr>
+          }
+        </tbody>
+      </table>
+    }
+    @if (vueActive === 'niveaux') {
+      <table class="table table-bordered table-striped">
+        <thead>
+          <tr>
+            <th style="background-color: #008080; color: white; text-align: center;">ANNÉES / NIVEAUX</th>
+            <th style="background-color: #008080; color: white; text-align: center;">NIVEAU</th>
+          </tr>
+        </thead>
+        <tbody>
+          @for (stat of statsNiveaux; track $index) {
+            <tr>
+              <td style="background-color: #008080; color: white; text-align: center; font-weight: bold;">
+                Niveau au {{ stat.niveauAnnee.annee }}
+              </td>
+              <td [style.color]="getCouleurFondParAnnee(getAnneeFromId(stat.niveauAnnee.id))" style="font-weight: bold;">{{ stat.niveau }}</td>
+            </tr>
+          }
+          <tr>
+            <th colspan="2" style="background-color: #008080; color: white; text-align: center; text-transform: uppercase;">
+              Niveaux gagnés par an
+            </th>
+          </tr>
+          @for (stat of getNiveauxGagnesParAnnee(); track $index) {
+            <tr>
+              <td style="background-color: #008080; color: white; text-align: center; font-weight: bold;">
+                Niveaux gagnés en {{ getAnneeFromId(stat.niveauAnnee.id) }}
+              </td>
+              <td [style.color]="getCouleurFondParAnnee(getAnneeFromId(stat.niveauAnnee.id))" style="font-weight: bold;">
+                {{ stat.niveau }}
               </td>
             </tr>
           }
