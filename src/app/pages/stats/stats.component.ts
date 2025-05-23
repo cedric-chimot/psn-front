@@ -6,12 +6,14 @@ import { StatsNiveaux } from '../../models/StatsNiveaux';
 import { StatsNiveauxService } from '../../services/statsNiveaux/stats-niveaux.service';
 import { StatsTropheesService } from '../../services/statsTrophees/stats-trophees.service';
 import { AnneeService } from '../../services/annee/annee.service';
+import { CommonModule } from '@angular/common';
+import { FormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-stats',
-  imports: [BoutonsNavigationComponent],
+  imports: [BoutonsNavigationComponent, CommonModule, FormsModule],
   templateUrl: './stats.component.html',
-  styleUrl: './stats.component.css'
+  styleUrls: ['./stats.component.css']
 })
 export class StatsComponent implements OnInit {
   statsTrophees: StatsTrophees[] = [];
@@ -21,6 +23,7 @@ export class StatsComponent implements OnInit {
   vueActive: 'trophees' | 'niveaux' = 'trophees';
   isTropheesModalOpen = false;
   isNiveauxModalOpen = false;
+  dernierAnnee: string = '';
 
   selectedTropheesAnneeForEdit: StatsTrophees | null = null;
   selectedNiveauxAnneeForEdit: StatsNiveaux | null = null;
@@ -49,8 +52,24 @@ export class StatsComponent implements OnInit {
     this.statsTropheesService.getAllStatsTrophees().subscribe({
       next: (data: StatsTrophees[]) => {
         this.statsTrophees = data;
+        // Trouver la dernière année dans les données (format string, ex: "31 mai 2025")
+        // Ici on suppose que 'annee' est une chaîne avec une date ou année
+
+        // Extraire l'année au format numérique
+        const anneesNumeriques = this.statsTrophees.map(s => {
+          const parts = s.tropheeAnnee.annee.match(/\d{4}$/); // cherche 4 chiffres à la fin
+          return parts ? +parts[0] : 0;
+        });
+        const maxAnnee = Math.max(...anneesNumeriques);
+
+        // Trouver la chaîne complète correspondant à cette année max
+        const dernierStat = this.statsTrophees.find(s => {
+          const parts = s.tropheeAnnee.annee.match(/\d{4}$/);
+          return parts && +parts[0] === maxAnnee;
+        });
+        this.dernierAnnee = dernierStat ? dernierStat.tropheeAnnee.annee : '';
       },
-      error: (err: any) => console.error('Erreur StatsTrophees', err)
+      error: (err) => console.error(err)
     });
   }
 
@@ -129,39 +148,48 @@ export class StatsComponent implements OnInit {
 
   // Méthode pour ouvrir le modal
   openTropheeModal(trophees: StatsTrophees): void {
-    // Copie complète pour la modification
-    this.selectedTropheesAnneeForEdit = { ...trophees } as unknown as StatsTrophees;
-
-    // Vérifie si une année est liée aux statistiques
-    if (this.selectedTropheesAnneeForEdit.tropheeAnnee && this.selectedTropheesAnneeForEdit.tropheeAnnee.id) {
-      this.selectedTropheesAnneeForEdit.tropheeAnnee = this.selectedTropheesAnneeForEdit.tropheeAnnee;
-      this.isTropheesModalOpen = true; // Ouvre le modal après avoir récupéré les détails
-    } else {
-      console.error('Statistiques invalides ou non définies pour cette année');
-      this.isTropheesModalOpen = true;
-    }
+    this.selectedTropheesAnneeForEdit = { ...trophees } as StatsTrophees;
+    this.isTropheesModalOpen = true;  // ça ouvre le modal
   }
 
   // Méthode pour mettre à jour les statistiques de trophées d'une année
   updateTrophees(): void {
-    if (this.selectedTropheesAnneeForEdit) {
-      // Création d'un objet qui ne contiendra que les champs modifiés
-      const updatedPokemon: any = {
-        id: this.selectedTropheesAnneeForEdit.id,
-        nbPlatine: this.selectedTropheesAnneeForEdit.nbPlatine,
-        nbOr: this.selectedTropheesAnneeForEdit.nbOr,
-        nbArgent: { id: this.selectedTropheesAnneeForEdit.nbArgent },
-        nbBronze: { id: this.selectedTropheesAnneeForEdit.nbBronze },
+    const stat = this.selectedTropheesAnneeForEdit;
+    if (stat && stat.tropheeAnnee) {  // Vérifie que l'objet et sa propriété ne sont pas nuls
+      const updatedStatsTrophees: StatsTrophees = {
+        id: stat.id,
+        nbPlatine: stat.nbPlatine,
+        nbOr: stat.nbOr,
+        nbArgent: stat.nbArgent,
+        nbBronze: stat.nbBronze,
+        tropheeAnnee: {
+          id: stat.tropheeAnnee.id,
+          annee: stat.tropheeAnnee.annee,
+        },
       };
 
-      this.statsTropheesService.updateStatsTrophees(updatedPokemon).subscribe({
+      this.statsTropheesService.updateStatsTrophees(updatedStatsTrophees).subscribe({
         next: () => {
-          this.getTropheesGagnesParAnnee(); // Rafraîchit les données après mise à jour
-          this.isTropheesModalOpen = false; // Ferme le modal
+          // Mise à jour de l'année après la maj des trophées
+          this.anneeService.updateAnnee(stat.tropheeAnnee).subscribe({
+            next: () => {
+              this.loadStatsTrophees();
+              this.isTropheesModalOpen = false;
+            },
+            error: err => console.error('Erreur lors de la mise à jour de l\'année :', err),
+          });
         },
-        error: (err) => console.error('Erreur lors de la mise à jour du Pokémon :', err),
+        error: err => console.error('Erreur lors de la mise à jour des stats :', err),
       });
+    } else {
+      console.error('Données sélectionnées invalides pour la mise à jour');
     }
+  }
+
+  // Fermer le modal
+  closeModal(): void {
+    this.isTropheesModalOpen = false;
+    this.isNiveauxModalOpen = false;
   }
 
   // Récupération de la couleur de fond en fonction de l'année

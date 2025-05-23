@@ -28,7 +28,7 @@ export class AnneeService {
 
   // Mettre à jour une année
   updateAnnee(annee: Annee): Observable<Annee> {
-    return this.http.put<Annee>(`${this.apiUrl}/update`, annee);
+    return this.http.patch<Annee>(`${this.apiUrl}/update`, annee);
   }
 
   // Supprimer une année par son ID

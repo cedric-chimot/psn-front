@@ -19,6 +19,7 @@
             <th style="background-color: #008080; color: white; text-align: center;">ARGENT</th>
             <th style="background-color: #008080; color: white; text-align: center;">BRONZE</th>
             <th style="background-color: #008080; color: white; text-align: center;">TOTAL</th>
+            <th style="background-color: #008080; color: white; text-align: center;">MODIFIER</th>
           </tr>
         </thead>
         <tbody>
@@ -32,10 +33,20 @@
               <td style="color: #c0c0c0; font-weight: bold;">{{ stat.nbArgent }}</td>
               <td style="color: #cd7f32; font-weight: bold;">{{ stat.nbBronze }}</td>
               <td style="color: #0f52ba; font-weight: bold;">{{ calculateTotal(stat) }}</td>
+              @if (stat.tropheeAnnee.annee === dernierAnnee) {
+                <td>
+                  <button class="button-modifier" (click)="openTropheeModal(stat)">
+                    <i class="fa-solid fa-pen-nib"></i>
+                  </button>
+                </td>
+              }
+              @if (stat.tropheeAnnee.annee !== dernierAnnee) {
+                <td></td>
+              }
             </tr>
           }
           <tr>
-            <th colspan="6" style="background-color: #008080; color: white; text-align: center; text-transform: uppercase;">
+            <th colspan="7" style="background-color: #008080; color: white; text-align: center; text-transform: uppercase;">
               Trophées gagnés par an
             </th>
           </tr>
@@ -56,7 +67,7 @@
               <td [style.color]="getCouleurFondParAnnee(getAnneeFromId(stat.tropheeAnnee.id))" style="font-weight: bold;">
                 {{ stat.nbBronze }}
               </td>
-              <td [style.color]="getCouleurFondParAnnee(getAnneeFromId(stat.tropheeAnnee.id))" style="font-weight: bold;">
+              <td colspan="2" [style.color]="getCouleurFondParAnnee(getAnneeFromId(stat.tropheeAnnee.id))" style="font-weight: bold;">
                 {{ calculateTotal(stat) }}
               </td>
             </tr>
@@ -104,11 +115,72 @@
     <button class="button-trophees me-4" [disabled]="vueActive === 'trophees'" (click)="changerVue('trophees')">
       Stats trophées
     </button>
-    <button class="button-niveaux me-4" [disabled]="vueActive === 'niveaux'" (click)="changerVue('niveaux')">
+    <button class="button-niveaux" [disabled]="vueActive === 'niveaux'" (click)="changerVue('niveaux')">
       Stats niveaux
     </button>
-    <button class="button-modifier">
-      Modifier
-    </button>
   </div>
+
+  @if (isTropheesModalOpen) {
+    <div class="modal">
+      <div class="modal-content">
+        <h2>Modifier le nombre de trophées</h2>
+        <form
+          (ngSubmit)="updateTrophees()"
+          style="display: flex; flex-direction: column; gap: 1rem"
+        >
+          <div>
+            <label for="nbPlatine">Platine</label>
+            <input
+              type="number"
+              id="nbPlatine"
+              [(ngModel)]="selectedTropheesAnneeForEdit!.nbPlatine"
+              name="nbPlatine"
+            />
+          </div>
+          <div>
+            <label for="nbOr">Or</label>
+            <input
+              type="number"
+              id="nbOr"
+              [(ngModel)]="selectedTropheesAnneeForEdit!.nbOr"
+              name="nbOr"
+            />
+          </div>
+          <div>
+            <label for="nbArgent">Argent</label>
+            <input
+              type="number"
+              id="nbArgent"
+              [(ngModel)]="selectedTropheesAnneeForEdit!.nbArgent"
+              name="nbArgent"
+            />
+          </div>
+          <div>
+            <label for="nbBronze">Bronze</label>
+            <input
+              type="number"
+              id="nbBronze"
+              [(ngModel)]="selectedTropheesAnneeForEdit!.nbBronze"
+              name="nbBronze"
+            />
+          </div>
+          <div>
+            <label for="annee">Année (Mois en cours)</label>
+            <input
+              type="text"
+              id="annee"
+              [(ngModel)]="selectedTropheesAnneeForEdit!.tropheeAnnee.annee"
+              name="annee"
+            />
+          </div>
+          <div style="text-align: center; margin-top: 1rem">
+            <button class="button" type="submit">Mettre à jour</button>
+            <button class="delBtn" type="button" (click)="closeModal()">
+              Fermer
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+  }
 </div>
