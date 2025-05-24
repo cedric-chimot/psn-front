@@ -19,7 +19,7 @@ _La page stats trophées :_
 
 _La page stats niveaux :_
 
-![Capture d'écran 2025-05-23 222728](https://github.com/user-attachments/assets/6434d594-5bd2-417f-ad37-9b602f4ec26a)
+![Capture d'écran 2025-05-25 001642](https://github.com/user-attachments/assets/402df3cd-e083-4f0a-9f25-ccba046e8a0b)
 
 _Formulaire pour modifier les stats :_
 
