@@ -147,12 +147,18 @@ export class StatsComponent implements OnInit {
     return '';
   }
 
-  // Méthode pour ouvrir le modal
+  // Méthode pour ouvrir le modal trophées
   openTropheeModal(trophees: StatsTrophees): void {
     this.selectedTropheesAnneeForEdit = { ...trophees } as StatsTrophees;
     this.isTropheesModalOpen = true;  // ça ouvre le modal
   }
 
+  // Méthode pour ouvrir le modal niveaux
+  openNiveauxModal(niveaux: StatsNiveaux): void {
+    this.selectedNiveauxAnneeForEdit = { ...niveaux } as StatsNiveaux;
+    this.isNiveauxModalOpen = true;  // ça ouvre le modal
+  }
+  
   // Méthode pour mettre à jour les statistiques de trophées d'une année
   updateTrophees(): void {
     const stat = this.selectedTropheesAnneeForEdit;

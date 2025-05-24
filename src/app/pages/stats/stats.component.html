@@ -80,6 +80,7 @@
           <tr>
             <th style="background-color: #008080; color: white; text-align: center;">ANNÉES / NIVEAUX</th>
             <th style="background-color: #008080; color: white; text-align: center;">NIVEAU</th>
+            <th style="background-color: #008080; color: white; text-align: center;">MODIFIER</th>
           </tr>
         </thead>
         <tbody>
@@ -89,10 +90,17 @@
                 Niveau au {{ stat.niveauAnnee.annee }}
               </td>
               <td [style.color]="getCouleurFondParAnnee(getAnneeFromId(stat.niveauAnnee.id))" style="font-weight: bold;">{{ stat.niveau }}</td>
+              @if (stat.niveauAnnee.annee === dernierAnnee) {
+                <td [attr.rowspan]="statsNiveaux.length" style="text-align: center; vertical-align: middle;">
+                  <button class="button-modifier-niveaux" (click)="openNiveauxModal(stat)">
+                    <i class="fa-solid fa-pen-nib"></i>
+                  </button>
+                </td>
+              }
             </tr>
           }
           <tr>
-            <th colspan="2" style="background-color: #008080; color: white; text-align: center; text-transform: uppercase;">
+            <th colspan="3" style="background-color: #008080; color: white; text-align: center; text-transform: uppercase;">
               Niveaux gagnés par an
             </th>
           </tr>
@@ -101,7 +109,7 @@
               <td style="background-color: #008080; color: white; text-align: center; font-weight: bold;">
                 Niveaux gagnés en {{ getAnneeFromId(stat.niveauAnnee.id) }}
               </td>
-              <td [style.color]="getCouleurFondParAnnee(getAnneeFromId(stat.niveauAnnee.id))" style="font-weight: bold;">
+              <td colspan="2" [style.color]="getCouleurFondParAnnee(getAnneeFromId(stat.niveauAnnee.id))" style="font-weight: bold;">
                 {{ stat.niveau }}
               </td>
             </tr>
