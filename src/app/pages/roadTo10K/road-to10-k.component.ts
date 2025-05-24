@@ -25,21 +25,19 @@ export class RoadTo10KComponent {
   objectif = 10000;
 
   niveauActuel = {
-    niveau: 605,
-    platine: 345,
-    or: 2640,
+    niveau: 607,
+    platine: 349,
+    or: 2684,
     argent: 2212,
     bronze: 4602,
-    total: 9799
+    total: 9847
   };
 
   jeuxDisponibles: Jeu[] = [
-    { nom: 'Goldorak, PS5', heures: 8, platine: 1, or: 5, argent: 13, bronze: 12, total: 31 },
-    { nom: 'Space Kabam, PS4/PS5', heures: 1, platine: 2, or: 22, argent: 0, bronze: 0, total: 24 },
     { nom: 'Clair Obscur : Expedition 33, PS5', heures: 60, platine: 1, or: 2, argent: 5, bronze: 48, total: 56 },
+    { nom: 'Banishers, PS5', heures: 40, platine: 1, or: 3, argent: 9, bronze: 30, total: 43 },
     { nom: 'Split Fiction, PS5', heures: 15, platine: 1, or: 8, argent: 5, bronze: 7, total: 21 },
-    { nom: 'Jusant, PS5', heures: 8, platine: 1, or: 7, argent: 8, bronze: 6, total: 22 },
-    { nom: 'Ratchet et Clank, PS5', heures: 10, platine: 1, or: 3, argent: 7, bronze: 36, total: 47 }
+    { nom: 'Beyond a Steel Sky, PS5', heures: 10, platine: 1, or: 5, argent: 12, bronze: 15, total: 33 },
   ];
 
   // Calculs totaux
