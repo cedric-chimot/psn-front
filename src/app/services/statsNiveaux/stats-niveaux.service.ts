@@ -28,7 +28,7 @@ export class StatsNiveauxService {
 
   // Mettre à jour une statistique de niveaux
   updateStatsNiveaux(statsNiveaux: StatsNiveaux): Observable<StatsNiveaux> {
-    return this.http.put<StatsNiveaux>(`${this.apiUrl}/update`, statsNiveaux);
+    return this.http.patch<StatsNiveaux>(`${this.apiUrl}/update`, statsNiveaux);
   }
 
   // Supprimer une statistique de niveaux par son ID
