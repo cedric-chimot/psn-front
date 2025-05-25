@@ -31,6 +31,10 @@
 
 _Avec checkbox pour les jeux terminés_
 
+![Capture d'écran 2025-05-25 113129](https://github.com/user-attachments/assets/4363c2f0-f37b-43f9-84bc-65fda77484b4)
+
+_Si une case est cochée, les totaux sont recalculés dynamiquement_
+
 ### 🔗 Liens
 
 **[Backend Repository](https://github.com/cedric-chimot/psn-back)** : Le lien vers le repository GitHub contenant le code backend.
