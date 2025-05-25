@@ -26,11 +26,11 @@
 
 #### _Road to 10k :_
 
-![Capture d'écran 2025-05-25 113110](https://github.com/user-attachments/assets/f1c4e77c-9da8-4316-bf42-472e66bac66d)
+![Capture d'écran 2025-05-25 171105](https://github.com/user-attachments/assets/3dbbf790-067c-4e42-9524-68a433d1660e)
 
 _Avec checkbox pour les jeux terminés_
 
-![Capture d'écran 2025-05-25 113129](https://github.com/user-attachments/assets/4363c2f0-f37b-43f9-84bc-65fda77484b4)
+![Capture d'écran 2025-05-25 171938](https://github.com/user-attachments/assets/ed3e596c-e492-43b2-93b4-b4c77896954a)
 
 _Si une case est cochée, les totaux sont recalculés dynamiquement_
 
