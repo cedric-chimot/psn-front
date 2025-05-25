@@ -6,12 +6,11 @@
 
 #### _La liste des trophées potentiels :_
 
-![Capture d'écran 2025-05-21 201328](https://github.com/user-attachments/assets/d07a8f8a-0622-4352-963d-c7cd0cadc950)
+![Capture d'écran 2025-05-25 171205](https://github.com/user-attachments/assets/7e93ade4-724e-49cc-bdce-374ae6a1947f)
 
-![Capture d'écran 2025-05-21 201441](https://github.com/user-attachments/assets/877fbe16-ee28-4a4e-847b-2736f4c9c819)
+![Capture d'écran 2025-05-25 171228](https://github.com/user-attachments/assets/f2cfe891-3a02-48f9-90c7-320c2c2c8336)
 
-![Capture d'écran 2025-05-24 002616](https://github.com/user-attachments/assets/b572b23d-5ab1-49f0-8cfd-e5f82895c954)
-
+![Capture d'écran 2025-05-25 171337](https://github.com/user-attachments/assets/4a417986-b8dd-4512-95c5-dee955a01cdc)
 
 #### _La page stats trophées :_
 
