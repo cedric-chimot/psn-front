@@ -59,7 +59,6 @@ tbody tr:hover {
   background-color: #d0e3d0;
 }
 
-.button-road,
 .button-trophees,
 .button-niveaux {
   width: 100%;
@@ -92,7 +91,6 @@ tbody tr:hover {
   transition: all 0.3s ease;
 }
 
-.button-road:hover,
 .button-trophees:hover,
 .button-niveaux:hover,
 .button-modifier:hover,
@@ -110,12 +108,6 @@ tbody tr:hover {
 .button-niveaux {
   background-color: #800080;
   color: white;
-  border: none;
-}
-
-.button-road {
-  background-color: #87ceeb;
-  color: black;
   border: none;
 }
 
