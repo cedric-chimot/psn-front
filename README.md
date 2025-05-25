@@ -18,7 +18,7 @@
 
 #### _La page stats niveaux :_
 
-![Capture d'écran 2025-05-25 001642](https://github.com/user-attachments/assets/402df3cd-e083-4f0a-9f25-ccba046e8a0b)
+![Capture d'écran 2025-05-25 171148](https://github.com/user-attachments/assets/77fe866b-a201-48f3-8630-bd87333e8045)
 
 #### _Formulaire pour modifier les stats :_
 
