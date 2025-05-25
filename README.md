@@ -27,7 +27,9 @@ _Formulaire pour modifier les stats :_
 
 _Road to 10k :_
 
-![Capture d'écran 2025-05-24 211712](https://github.com/user-attachments/assets/e87df329-213b-4c8f-b985-bf6fa3057990)
+![Capture d'écran 2025-05-25 113110](https://github.com/user-attachments/assets/f1c4e77c-9da8-4316-bf42-472e66bac66d)
+
+#### _Avec checkbox pour les jeux terminés_
 
 ### 🔗 Liens
 
