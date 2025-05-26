@@ -158,7 +158,7 @@ export class StatsComponent implements OnInit {
     this.selectedNiveauxAnneeForEdit = { ...niveaux } as StatsNiveaux;
     this.isNiveauxModalOpen = true;  // ça ouvre le modal
   }
-  
+
   // Méthode pour mettre à jour les statistiques de trophées d'une année
   updateTrophees(): void {
     const stat = this.selectedTropheesAnneeForEdit;
@@ -181,7 +181,39 @@ export class StatsComponent implements OnInit {
           this.anneeService.updateAnnee(stat.tropheeAnnee).subscribe({
             next: () => {
               this.loadStatsTrophees();
+              this.loadStatsNiveaux(); // Recharger les stats niveaux pour mettre à jour l'affichage
               this.isTropheesModalOpen = false;
+            },
+            error: err => console.error('Erreur lors de la mise à jour de l\'année :', err),
+          });
+        },
+        error: err => console.error('Erreur lors de la mise à jour des stats :', err),
+      });
+    } else {
+      console.error('Données sélectionnées invalides pour la mise à jour');
+    }
+  }
+
+  // Méthode pour mettre à jour les statistiques de trophées d'une année
+  updateNiveaux(): void {
+    const stat = this.selectedNiveauxAnneeForEdit;
+    if (stat && stat.niveauAnnee) {  // Vérifie que l'objet et sa propriété ne sont pas nuls
+      const updatedStatsNiveaux: StatsNiveaux = {
+        id: stat.id,
+        niveau: stat.niveau,
+        niveauAnnee: {
+          id: stat.niveauAnnee.id,
+          annee: stat.niveauAnnee.annee,
+        },
+      };
+
+      this.statsNiveauxService.updateStatsNiveaux(updatedStatsNiveaux).subscribe({
+        next: () => {
+          // Mise à jour de l'année après la maj des trophées
+          this.anneeService.updateAnnee(stat.niveauAnnee).subscribe({
+            next: () => {
+              this.loadStatsNiveaux();
+              this.isNiveauxModalOpen = false;
             },
             error: err => console.error('Erreur lors de la mise à jour de l\'année :', err),
           });
