@@ -69,7 +69,7 @@
                 <td style="background-color: #008080; color: white;">{{ jp.jeu }}</td>
                 <td>{{ jp.plateforme.plateforme }}</td>
                 <td>
-                  <button class="update">
+                  <button class="update" (click)="openJeuModal(jp)">
                     <i class="fa-solid fa-pen-nib"></i>
                   </button>
                   <button class="delete">

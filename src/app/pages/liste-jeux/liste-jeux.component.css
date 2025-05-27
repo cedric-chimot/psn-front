@@ -116,3 +116,118 @@ tbody tr:hover {
   z-index: 1000;
   padding: 20px; /* Ajouter un peu d'espace autour du modal */
 }
+
+/* Modal content box */
+.modal-content {
+  background: white;
+  padding: 20px;
+  border-radius: 8px;
+  width: 100%;
+  max-width: 450px; /* Largeur max pour éviter que le modal soit trop large */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Form styling */
+.modal-content form {
+  display: flex;
+  flex-direction: column; /* Place les éléments (y compris les boutons) en colonne */
+  gap: 15px; /* Espacement vertical entre les éléments */
+}
+
+/* Boutons alignés verticalement */
+.modal-content form button {
+  align-self: center; /* Centre chaque bouton horizontalement */
+  max-width: 250px; /* Limite la largeur des boutons */
+  width: 100%; /* Largeur pleine dans les limites de max-width */
+  padding: 10px;
+}
+
+/* Alignement horizontal du label et du select */
+.modal-content form div {
+  display: flex;
+  align-items: center;
+  justify-content: space-between; /* Espace entre le label et le select */
+}
+
+.modal-content h2.title {
+  text-align: center;
+  font-size: 20px;
+}
+
+.modal-content p {
+  text-align: center;
+}
+
+.modal-content p.confirm {
+  text-align: center;
+  font-style: italic;
+}
+
+/* Label styling */
+label {
+  margin-right: 10px; /* Espace entre le label et le select */
+  font-weight: bold;
+  color: #333;
+}
+
+/* Select aligné à droite et petite taille */
+select {
+  width: 120px; /* Largeur réduite pour le select */
+  padding: 5px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  text-align: left; /* Aligne le texte dans le select à droite */
+}
+
+/* Title styling */
+.modal h2 {
+  text-align: center;
+  margin-bottom: 20px;
+  font-size: 1.5rem;
+  color: #008080;
+  text-transform: uppercase;
+}
+
+/* Alignement horizontal du label et du select */
+.modal-content form div {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+/* Form container */
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px; /* Espacement entre les éléments du formulaire */
+}
+
+input,
+select {
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 1rem;
+  margin-bottom: 10px; /* Espacement entre l'input et le bouton suivant */
+}
+
+.button {
+  background-color: #04adbf;
+  color: whitesmoke;
+  cursor: pointer;
+  margin-right: 10px;
+  border: none;
+  border-radius: 10px;
+  padding: 8px 20px;
+  text-transform: uppercase;
+}
+
+.delBtn {
+  background-color: #dc3545;
+  color: whitesmoke;
+  cursor: pointer;
+  border: none;
+  border-radius: 10px;
+  padding: 8px 20px;
+  text-transform: uppercase;
+}
