@@ -32,6 +32,8 @@ _Avec les lignes totaux actuels et potentiels uniquement sur la dernière page_
 
 ![Capture d'écran 2025-05-25 171902](https://github.com/user-attachments/assets/084feaaa-6062-4457-a3bb-30a9ea825b18)
 
+![image](https://github.com/user-attachments/assets/4e83d584-46ef-4bf3-a0de-1a271cb58788)
+
 #### _Road to 10k :_
 
 ![Capture d'écran 2025-05-28 003033](https://github.com/user-attachments/assets/7aca785e-2416-40ef-a34d-e0a78d22a3e5)
