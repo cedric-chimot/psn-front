@@ -34,7 +34,7 @@ _Avec les lignes totaux actuels et potentiels uniquement sur la dernière page_
 
 #### _Road to 10k :_
 
-![Capture d'écran 2025-05-25 171105](https://github.com/user-attachments/assets/3dbbf790-067c-4e42-9524-68a433d1660e)
+![Capture d'écran 2025-05-28 003033](https://github.com/user-attachments/assets/7aca785e-2416-40ef-a34d-e0a78d22a3e5)
 
 _Avec checkbox pour les jeux terminés_
 
