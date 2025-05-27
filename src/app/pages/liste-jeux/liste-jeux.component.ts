@@ -29,6 +29,9 @@ export class ListeJeuxComponent implements OnInit {
   jeuxPerPage: number = 6;
   currentPage: number = 1;
   isAddModalOpen = false;
+  isJeuModalOpen = false;
+
+  selectedJeuForEdit: Jeux | null = null;
 
   constructor(
     private jeuxService: JeuxService,
@@ -94,6 +97,37 @@ export class ListeJeuxComponent implements OnInit {
     this.isAddModalOpen = true;
   }
 
+  // Méthode pour ouvrir le modal jeux
+  openJeuModal(jeu: Jeux): void {
+    this.selectedJeuForEdit = { ...jeu } as Jeux;
+    this.isJeuModalOpen = true;  // ça ouvre le modal
+  }
+
+  // Méthode pour mettre à jour une pokeball
+  updateJeu(): void {
+    if (this.selectedJeuForEdit) {
+      // Création d'un objet qui ne contiendra que les champs modifiés
+      const updatedJeu: any = {
+        id: this.selectedJeuForEdit.id,
+        jeu: this.selectedJeuForEdit.jeu,
+        plateforme: { id: this.selectedJeuForEdit.plateforme.id }, // Utilisation de l'ID seulement
+        nbPlatine: this.selectedJeuForEdit.nbPlatine,
+        nbOr: this.selectedJeuForEdit.nbOr,
+        nbArgent: this.selectedJeuForEdit.nbArgent,
+        nbBronze: this.selectedJeuForEdit.nbBronze,
+        nbHeures: this.selectedJeuForEdit.nbHeures
+      };
+
+      this.jeuxService.updateJeu(updatedJeu).subscribe({
+        next: () => {
+          this.refresh(); // Rafraîchit les données après mise à jour
+          this.closeModal();
+        },
+        error: (err) => console.error('Erreur lors de la mise à jour du jeu:', err),
+      });
+    }
+  }
+
   // Méthode pour rafraîchir la liste des jeux après ajout
   refresh(): void {
     this.jeuxService.getAllJeux().subscribe({
@@ -108,6 +142,7 @@ export class ListeJeuxComponent implements OnInit {
   // Fermer le modal
   closeModal(): void {
     this.isAddModalOpen = false;
+    this.isJeuModalOpen = false;
   }
 
   // Méthode pour changer de page
