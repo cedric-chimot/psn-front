@@ -10,6 +10,8 @@
 
 ![Capture d'écran 2025-05-25 171228](https://github.com/user-attachments/assets/f2cfe891-3a02-48f9-90c7-320c2c2c8336)
 
+#### _Ajouter un jeu :_
+
 ![Capture d'écran 2025-05-25 171337](https://github.com/user-attachments/assets/4a417986-b8dd-4512-95c5-dee955a01cdc)
 
 ![Capture d'écran 2025-05-27 213025](https://github.com/user-attachments/assets/619d80e6-dd81-4062-9723-ddbc763747f2)
