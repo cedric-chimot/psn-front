@@ -38,7 +38,7 @@ _Avec les lignes totaux actuels et potentiels uniquement sur la dernière page_
 
 _Avec checkbox pour les jeux terminés_
 
-![Capture d'écran 2025-05-25 171938](https://github.com/user-attachments/assets/ed3e596c-e492-43b2-93b4-b4c77896954a)
+![Capture d'écran 2025-05-28 003856](https://github.com/user-attachments/assets/67ddced0-eacb-4174-ad42-d5cb0d4fba41)
 
 _Si une case est cochée, les totaux sont recalculés dynamiquement_
 
