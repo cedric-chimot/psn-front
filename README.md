@@ -12,6 +12,8 @@
 
 ![Capture d'écran 2025-05-25 171337](https://github.com/user-attachments/assets/4a417986-b8dd-4512-95c5-dee955a01cdc)
 
+![Capture d'écran 2025-05-27 213025](https://github.com/user-attachments/assets/619d80e6-dd81-4062-9723-ddbc763747f2)
+
 #### _La page stats trophées :_
 
 ![Capture d'écran 2025-05-25 171131](https://github.com/user-attachments/assets/90d24146-12a7-423e-a672-4d044a35e926)
