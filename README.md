@@ -6,13 +6,13 @@
 
 #### _La liste des trophées potentiels :_
 
-![Capture d'écran 2025-05-25 171205](https://github.com/user-attachments/assets/7e93ade4-724e-49cc-bdce-374ae6a1947f)
-
-![Capture d'écran 2025-05-25 171228](https://github.com/user-attachments/assets/f2cfe891-3a02-48f9-90c7-320c2c2c8336)
+![Capture d'écran 2025-05-28 003011](https://github.com/user-attachments/assets/2b594c6d-09e3-466d-a72b-39636ae602b2)
 
 #### _Ajouter un jeu :_
 
 ![Capture d'écran 2025-05-25 171337](https://github.com/user-attachments/assets/4a417986-b8dd-4512-95c5-dee955a01cdc)
+
+![Capture d'écran 2025-05-28 003052](https://github.com/user-attachments/assets/c6088c76-17b5-4cb7-96bd-27d293a4178e)
 
 #### _Modifier un jeu :_
 
