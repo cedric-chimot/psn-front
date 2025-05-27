@@ -41,20 +41,29 @@ export class ListeJeuxComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
+    this.loadJeux();
+    this.loadPlateformes();
+    this.loadNiveauActuel();
+    this.loadTropheesActuels();
+  }
+
+  // Méthode pour charger tous les jeux
+  loadJeux(): void {
     this.jeuxService.getAllJeux().subscribe({
       next: (data: Jeux[]) => {
         this.allJeuxList = data;
-        this.updatePage(); // 👈 ajoute cette ligne
+        this.updatePage();
       },
-      error: (err: any) => console.error('Erreur Jeux', err)
+      error: (err: any) => console.error('Erreur lors du chargement des jeux', err)
     });
+  }
 
+  // Méthode pour charger toutes les plateformes
+  loadPlateformes(): void {
     this.plateformeService.getAllPlateformes().subscribe({
       next: (data) => this.plateformes = data,
-      error: (err) => console.error('Erreur Plateformes', err)
+      error: (err) => console.error('Erreur lors du chargement des plateformes', err)
     });
-    this.loadNiveauActuel();
-    this.loadTropheesActuels();
   }
 
   // Récupération des statistiques de niveaux pour l'année actuelle
@@ -120,7 +129,7 @@ export class ListeJeuxComponent implements OnInit {
 
       this.jeuxService.updateJeu(updatedJeu).subscribe({
         next: () => {
-          this.refresh(); // Rafraîchit les données après mise à jour
+          this.loadJeux(); // Rafraîchit les données après mise à jour
           this.closeModal();
         },
         error: (err) => console.error('Erreur lors de la mise à jour du jeu:', err),

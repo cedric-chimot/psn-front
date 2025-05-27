@@ -152,4 +152,95 @@
     </div>
   }
 
+  @if (isJeuModalOpen) {
+    <div class="modal">
+      <div class="modal-content">
+        <h2>Modifier le jeu</h2>
+        <form
+          (ngSubmit)="updateJeu()"
+          style="display: flex; flex-direction: column; gap: 1rem"
+        >
+          <div>
+            <label for="jeu">Jeu</label>
+            <input
+              type="string"
+              id="jeu"
+              [(ngModel)]="selectedJeuForEdit!.jeu"
+              name="jeu"
+              disabled
+            />
+          </div>
+          <div>
+            <label for="plateforme">Plateforme</label>
+            <select
+              id="plateforme"
+              name="plateforme"
+              [(ngModel)]="selectedJeuForEdit!.plateforme"
+              [ngModelOptions]="{ standalone: true }"
+              required
+            >
+              @for (p of plateformes; track $index) {
+                <option [ngValue]="p">
+                  {{ p.plateforme }}
+                </option>
+              }
+            </select>
+          </div>
+          <div>
+            <label for="nbPlatine">Platine</label>
+            <input
+              type="number"
+              id="nbPlatine"
+              [(ngModel)]="selectedJeuForEdit!.nbPlatine"
+              name="nbPlatine"
+              disabled
+            />
+          </div>
+          <div>
+            <label for="nbOr">Or</label>
+            <input
+              type="number"
+              id="nbOr"
+              [(ngModel)]="selectedJeuForEdit!.nbOr"
+              name="nbOr"
+            />
+          </div>
+          <div>
+            <label for="nbArgent">Argent</label>
+            <input
+              type="number"
+              id="nbArgent"
+              [(ngModel)]="selectedJeuForEdit!.nbArgent"
+              name="nbArgent"
+            />
+          </div>
+          <div>
+            <label for="nbBronze">Bronze</label>
+            <input
+              type="number"
+              id="nbBronze"
+              [(ngModel)]="selectedJeuForEdit!.nbBronze"
+              name="nbBronze"
+            />
+          </div>
+          <div>
+            <label for="nbHeures">Heures de jeu estimées</label>
+            <input
+              type="number"
+              id="nbHeures"
+              [(ngModel)]="selectedJeuForEdit!.nbHeures"
+              name="nbHeures"
+            />
+          </div>
+          <div style="text-align: center; margin-top: 1rem">
+            <button class="button" type="submit">Mettre à jour</button>
+            <button class="delBtn" type="button" (click)="closeModal()">
+              Fermer
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+  }
+
 </div>

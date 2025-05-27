@@ -28,7 +28,7 @@ export class JeuxService {
 
   // Mettre à jour un jeu
   updateJeu(jeu: Jeux): Observable<Jeux> {
-    return this.http.put<Jeux>(`${this.apiUrl}/update`, jeu);
+    return this.http.patch<Jeux>(`${this.apiUrl}/update`, jeu);
   }
 
   // Supprimer un jeu par son ID
