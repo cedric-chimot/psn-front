@@ -1,1 +1,6 @@
 /* You can add global styles to this file, and also import other style files */
+/* Couleur de fond globale */
+body {
+    background-color: #ebf2f2; /* Blanc cassé légèrement teinté */
+    color: #333; /* Texte en gris foncé pour un bon contraste */
+}
