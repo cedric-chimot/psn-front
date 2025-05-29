@@ -34,9 +34,9 @@ _Avec les lignes totaux actuels et potentiels uniquement sur la dernière page_
 
 #### _Formulaire pour modifier les stats :_
 
-![Capture d'écran 2025-05-25 171902](https://github.com/user-attachments/assets/084feaaa-6062-4457-a3bb-30a9ea825b18)
+![Capture d'écran 2025-05-29 164527](https://github.com/user-attachments/assets/0828cdc2-5bf6-47af-957a-1ce5ced91bf6)
 
-![image](https://github.com/user-attachments/assets/4e83d584-46ef-4bf3-a0de-1a271cb58788)
+![Capture d'écran 2025-05-29 164557](https://github.com/user-attachments/assets/912597bf-d15b-4d71-9f6d-cc61e6180b24)
 
 #### _Road to 10k :_
 
