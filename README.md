@@ -6,9 +6,9 @@
 
 #### _La liste des trophées potentiels :_
 
-![Capture d'écran 2025-05-28 003011](https://github.com/user-attachments/assets/2b594c6d-09e3-466d-a72b-39636ae602b2)
+![Capture d'écran 2025-05-29 133911](https://github.com/user-attachments/assets/589d00ef-f4f1-4f04-88ab-5ae5fb4ac6f8)
 
-![Capture d'écran 2025-05-28 003052](https://github.com/user-attachments/assets/c6088c76-17b5-4cb7-96bd-27d293a4178e)
+![Capture d'écran 2025-05-29 134014](https://github.com/user-attachments/assets/29492a3f-8f17-46fe-a500-ab297207d297)
 
 _Avec les lignes totaux actuels et potentiels uniquement sur la dernière page_
 
