@@ -238,10 +238,10 @@ export class StatsComponent implements OnInit {
       case '2025': return '#0f52ba';
       case '2024': return '#63c8f0';
       case '2023': return '#e3c035';
-      case '2022': return '#dda0dd';
-      case '2021': return '#FF0066';
-      case '2020': return '#cd7f32';
-      default: return '#ffffff'; // blanc par défaut
+      case '2022': return '#929090';
+      case '2021': return '#cd7f32';
+      case '2020': return '#00468c';
+      default: return '#000000';
     }
   }
 
@@ -282,5 +282,5 @@ export class StatsComponent implements OnInit {
 
     return { labels, data, colors };
   }
-  
+
 }
