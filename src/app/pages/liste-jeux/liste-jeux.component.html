@@ -73,7 +73,7 @@
                     <i class="fa-solid fa-pen-nib"></i>
                   </button>
                   <button class="delete">
-                    <i class="fa-solid fa-trash"></i>
+                    <i class="fa-solid fa-trash" (click)="openDeleteModal(jp)"></i>
                   </button>
                 </td>
                 <td>{{ jp.nbHeures }}</td>
@@ -243,4 +243,18 @@
     </div>
   }
 
+  <!-- Modal pour supprimer le jeu -->
+  @if (isDeleteModalOpen) {
+    <div class="modal">
+      <div class="modal-content">
+        <h2 class="title">Voulez-vous réellement supprimer ce jeu ?</h2>
+        <p>Le jeu <strong>{{ selectedJeuForDelete?.jeu }}</strong> sera définitivement supprimé.</p>
+        <p class="confirm">Confirmer la suppression ?</p>
+        <div style="text-align: center;">
+          <button class="button" (click)="deleteJeu()">Confirmer</button>
+          <button class="delBtn" (click)="closeModal()">Annuler</button>
+        </div>
+      </div>
+    </div>
+  }
 </div>
