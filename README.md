@@ -30,7 +30,7 @@ _Avec les lignes totaux actuels et potentiels uniquement sur la dernière page_
 
 #### _La page stats niveaux :_
 
-![Capture d'écran 2025-05-25 171148](https://github.com/user-attachments/assets/77fe866b-a201-48f3-8630-bd87333e8045)
+![Capture d'écran 2025-05-29 164545](https://github.com/user-attachments/assets/5606beec-34f0-42f3-8999-4af249412a60)
 
 #### _Formulaire pour modifier les stats :_
 
