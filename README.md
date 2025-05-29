@@ -20,6 +20,10 @@ _Avec les lignes totaux actuels et potentiels uniquement sur la dernière page_
 
 ![Capture d'écran 2025-05-27 213025](https://github.com/user-attachments/assets/619d80e6-dd81-4062-9723-ddbc763747f2)
 
+#### _Supprimer un jeu :_
+
+![Capture d'écran 2025-05-29 092604](https://github.com/user-attachments/assets/b7c8548b-0269-4276-a35d-8efd2a5c2441)
+
 #### _La page stats trophées :_
 
 ![Capture d'écran 2025-05-25 171131](https://github.com/user-attachments/assets/90d24146-12a7-423e-a672-4d044a35e926)
