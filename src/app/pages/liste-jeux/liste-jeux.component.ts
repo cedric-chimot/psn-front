@@ -30,8 +30,10 @@ export class ListeJeuxComponent implements OnInit {
   currentPage: number = 1;
   isAddModalOpen = false;
   isJeuModalOpen = false;
+  isDeleteModalOpen = false;
 
   selectedJeuForEdit: Jeux | null = null;
+  selectedJeuForDelete: Jeux | null = null;
 
   constructor(
     private jeuxService: JeuxService,
@@ -112,6 +114,12 @@ export class ListeJeuxComponent implements OnInit {
     this.isJeuModalOpen = true;  // ça ouvre le modal
   }
 
+  // Méthode pour ouvrir le modal de suppression
+  openDeleteModal(jeu: Jeux): void {
+    this.selectedJeuForDelete = { ...jeu } as unknown as Jeux;  // Copie complète pour la suppression
+    this.isDeleteModalOpen = true;  // Ouvre le modal de suppression
+  }
+
   // Méthode pour mettre à jour une pokeball
   updateJeu(): void {
     if (this.selectedJeuForEdit) {
@@ -137,6 +145,21 @@ export class ListeJeuxComponent implements OnInit {
     }
   }
 
+  // Supprimer un jeu par son ID
+  deleteJeu(): void {
+    if (this.selectedJeuForDelete && this.selectedJeuForDelete.id) {
+      this.jeuxService.deleteJeuById(this.selectedJeuForDelete.id).subscribe({
+        next: () => {
+          this.loadJeux();  // Recharger la liste après suppression
+          this.closeModal();  // Fermer le modal après la suppression
+        },
+        error: (err) => console.error('Erreur lors de la suppression du jeu:', err)
+      });
+    } else {
+      console.error('Aucun Jeu sélectionné pour suppression');
+    }
+  }
+
   // Méthode pour rafraîchir la liste des jeux après ajout
   refresh(): void {
     this.jeuxService.getAllJeux().subscribe({
@@ -152,6 +175,7 @@ export class ListeJeuxComponent implements OnInit {
   closeModal(): void {
     this.isAddModalOpen = false;
     this.isJeuModalOpen = false;
+    this.isDeleteModalOpen = false;
   }
 
   // Méthode pour changer de page
