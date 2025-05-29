@@ -7,7 +7,11 @@
     <h2>Rapport niveaux gagnés sur 1 an</h2>
   }
 
-  <div class="d-flex align-items-start mt-4 mb-4">
+  @if (vueActive === 'graphiques') {
+    <h2>Graphiques de comparaison par années</h2>
+  }
+
+  <div class="mt-4 mb-4">
 
     <app-boutons-navigation></app-boutons-navigation>
 
@@ -32,7 +36,7 @@
               </td>
               <td style="color: #63c8f0; font-weight: bold;">{{ stat.nbPlatine }}</td>
               <td style="color: #e3c035; font-weight: bold;">{{ stat.nbOr }}</td>
-              <td style="color: #c0c0c0; font-weight: bold;">{{ stat.nbArgent }}</td>
+              <td style="color: #929090; font-weight: bold;">{{ stat.nbArgent }}</td>
               <td style="color: #cd7f32; font-weight: bold;">{{ stat.nbBronze }}</td>
               <td style="color: #0f52ba; font-weight: bold;">{{ calculateTotal(stat) }}</td>
               @if (stat.tropheeAnnee.annee === dernierAnnee) {
@@ -73,7 +77,6 @@
           }
         </tbody>
       </table>
-
     }
 
     @if (vueActive === 'niveaux') {
@@ -103,7 +106,7 @@
           }
           <tr>
             <th colspan="3" style="background-color: #008080; color: white; text-align: center; text-transform: uppercase;">
-              Niveaux gagnés par an
+              Niveaux gagnés par an (approximatif pour 2020 à 2023)
             </th>
           </tr>
           @for (stat of getNiveauxGagnesParAnnee(); track $index) {
@@ -119,14 +122,43 @@
         </tbody>
       </table>
     }
+
+    @if (vueActive === 'graphiques') {
+      <!-- Graphique total trophées par année -->
+      <app-graph
+        [chartLabels]="getChartDataForTropheesDiff().labels"
+        [chartData]="getChartDataForTropheesDiff().data"
+        chartType="bar"
+        chartTitle="Évolution du nombre de trophées gagnés d'une année sur l'autre"
+        [chartColors]="getChartDataForTropheesDiff().colors"
+      ></app-graph>
+
+      <!-- Graphique total niveaux par année -->
+      <app-graph
+        [chartLabels]="getChartDataForNiveauxDiff().labels"
+        [chartData]="getChartDataForNiveauxDiff().data"
+        chartType="bar"
+        chartTitle="Évolution du nombre de niveaux gagnés d'une année sur l'autre"
+        [chartColors]="getChartDataForNiveauxDiff().colors"
+      ></app-graph>
+
+      <p class="p-graph"> Les gains de niveaux sont généralement plus importants dans les premières années, car au début, il est plus facile de monter
+        rapidement de rang. En effet, à mesure que le rang augmente, il faut de plus en plus de points pour atteindre le niveau suivant. Aujourd'hui,
+        le rang étant de <strong>600 et +</strong>, il faut <strong>2250 points</strong> pour monter au niveau suivant.
+      </p>
+
+    }
   </div>
 
-  <div class="mt-4 text-center">
+  <div class="mt-4 mb-4 text-center">
     <button class="button-trophees me-4" [disabled]="vueActive === 'trophees'" (click)="changerVue('trophees')">
       Stats trophées
     </button>
-    <button class="button-niveaux" [disabled]="vueActive === 'niveaux'" (click)="changerVue('niveaux')">
+    <button class="button-niveaux me-4" [disabled]="vueActive === 'niveaux'" (click)="changerVue('niveaux')">
       Stats niveaux
+    </button>
+    <button class="button-graphiques" [disabled]="vueActive === 'graphiques'" (click)="changerVue('graphiques')">
+      Graphiques
     </button>
   </div>
 

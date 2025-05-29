@@ -10,7 +10,7 @@ Chart.register(...registerables, ChartDataLabels);
   selector: 'app-graph',
   imports: [],
   templateUrl: './graph.component.html',
-  styleUrl: './graph.component.css'
+  styleUrls: ['./graph.component.css']
 })
 export class GraphComponent implements OnInit, AfterViewInit {
   // Propriétés d'entrée passées depuis le composant parent

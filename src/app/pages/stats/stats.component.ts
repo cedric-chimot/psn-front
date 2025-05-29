@@ -9,10 +9,11 @@ import { AnneeService } from '../../services/annee/annee.service';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
+import { GraphComponent } from "../../components/commons/graph/graph.component";
 
 @Component({
   selector: 'app-stats',
-  imports: [BoutonsNavigationComponent, CommonModule, FormsModule, RouterModule],
+  imports: [BoutonsNavigationComponent, CommonModule, FormsModule, RouterModule, GraphComponent],
   templateUrl: './stats.component.html',
   styleUrls: ['./stats.component.css']
 })
@@ -21,7 +22,7 @@ export class StatsComponent implements OnInit {
   statsNiveaux: StatsNiveaux[] = [];
   annees: Annee[] = [];
   niveauActuel: number = 0;
-  vueActive: 'trophees' | 'niveaux' = 'trophees';
+  vueActive: 'trophees' | 'niveaux' | 'graphiques' = 'trophees';
   isTropheesModalOpen = false;
   isNiveauxModalOpen = false;
   dernierAnnee: string = '';
@@ -239,6 +240,7 @@ export class StatsComponent implements OnInit {
       case '2023': return '#e3c035';
       case '2022': return '#dda0dd';
       case '2021': return '#FF0066';
+      case '2020': return '#cd7f32';
       default: return '#ffffff'; // blanc par défaut
     }
   }
@@ -249,8 +251,36 @@ export class StatsComponent implements OnInit {
   }
 
   // Changer la vue active
-  changerVue(type: 'trophees' | 'niveaux') {
+  changerVue(type: 'trophees' | 'niveaux' | 'graphiques'): void {
     this.vueActive = type;
   }
 
+  // Prépare labels (années) et data (totaux trophées)
+  getChartDataForTropheesDiff(): { labels: string[], data: number[], colors: string[] } {
+    const stats = this.getTropheesGagnesParAnnee().slice().reverse(); // Inverser l'ordre pour avoir les années de 2025 à 2020
+
+    const labels = stats.map(s => s.tropheeAnnee.annee);
+    const data = stats.map(s =>
+      s.nbPlatine + s.nbOr + s.nbArgent + s.nbBronze
+    );
+    const colors = stats.map(s =>
+      this.getCouleurFondParAnnee(this.getAnneeFromId(s.tropheeAnnee.id))
+    );
+
+    return { labels, data, colors };
+  }
+
+  // Prépare labels (années) et data (totaux niveaux)
+  getChartDataForNiveauxDiff(): { labels: string[], data: number[], colors: string[] } {
+    const stats = this.getNiveauxGagnesParAnnee().slice().reverse(); // Inverser l'ordre pour avoir les années de 2025 à 2020
+
+    const labels = stats.map(s => s.niveauAnnee.annee);
+    const data = stats.map(s => s.niveau);
+    const colors = stats.map(s =>
+      this.getCouleurFondParAnnee(this.getAnneeFromId(s.niveauAnnee.id))
+    );
+
+    return { labels, data, colors };
+  }
+  
 }
