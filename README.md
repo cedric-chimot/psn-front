@@ -34,7 +34,7 @@ _Avec les lignes totaux actuels et potentiels uniquement sur la dernière page_
 
 #### _Formulaire pour modifier les stats :_
 
-![Capture d'écran 2025-05-29 164527](https://github.com/user-attachments/assets/0828cdc2-5bf6-47af-957a-1ce5ced91bf6)
+![Capture d'écran 2025-05-31 220950](https://github.com/user-attachments/assets/3e8b22db-9456-45a3-96d9-5285a5ded054)
 
 ![Capture d'écran 2025-05-29 164557](https://github.com/user-attachments/assets/912597bf-d15b-4d71-9f6d-cc61e6180b24)
 
