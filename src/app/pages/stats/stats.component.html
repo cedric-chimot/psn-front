@@ -34,11 +34,21 @@
               <td style="background-color: #008080; color: white; text-align: center; font-weight: bold;">
                 TOTAL {{ stat.tropheeAnnee.annee }}
               </td>
-              <td style="color: #63c8f0; font-weight: bold;">{{ stat.nbPlatine }}</td>
-              <td style="color: #e3c035; font-weight: bold;">{{ stat.nbOr }}</td>
-              <td style="color: #929090; font-weight: bold;">{{ stat.nbArgent }}</td>
-              <td style="color: #cd7f32; font-weight: bold;">{{ stat.nbBronze }}</td>
-              <td style="color: #0f52ba; font-weight: bold;">{{ calculateTotal(stat) }}</td>
+              <td [style.color]="getCouleurFondParAnnee(getAnneeFromId(stat.tropheeAnnee.id))" style="font-weight: bold;">
+                {{ stat.nbPlatine }}
+              </td>
+              <td [style.color]="getCouleurFondParAnnee(getAnneeFromId(stat.tropheeAnnee.id))" style="font-weight: bold;">
+                {{ stat.nbOr }}
+              </td>
+              <td [style.color]="getCouleurFondParAnnee(getAnneeFromId(stat.tropheeAnnee.id))" style="font-weight: bold;">
+                {{ stat.nbArgent }}
+              </td>
+              <td [style.color]="getCouleurFondParAnnee(getAnneeFromId(stat.tropheeAnnee.id))" style="font-weight: bold;">
+                {{ stat.nbBronze }}
+              </td>
+              <td [style.color]="getCouleurFondParAnnee(getAnneeFromId(stat.tropheeAnnee.id))" style="font-weight: bold;">
+                {{ calculateTotal(stat) }}
+              </td>
               @if (stat.tropheeAnnee.annee === dernierAnnee) {
                 <td [attr.rowspan]="statsTrophees.length" style="text-align: center; vertical-align: middle;">
                   <button class="button-modifier" (click)="openTropheeModal(stat)">
