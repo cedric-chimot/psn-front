@@ -16,7 +16,6 @@ _Avec les lignes totaux actuels et potentiels uniquement sur la dernière page_
 
 ![Capture d'écran 2025-05-25 171337](https://github.com/user-attachments/assets/4a417986-b8dd-4512-95c5-dee955a01cdc)
 
-
 #### _Modifier un jeu :_
 
 ![Capture d'écran 2025-05-27 213025](https://github.com/user-attachments/assets/619d80e6-dd81-4062-9723-ddbc763747f2)
