@@ -50,15 +50,18 @@ _Avec les lignes totaux actuels et potentiels uniquement sur la dernière page_
 
 ![Capture d'écran 2025-05-29 164640](https://github.com/user-attachments/assets/12da0393-6a03-453e-b79b-774f5cb0aa25)
 
+
 #### _Road to 10k :_
 
 ![Capture d'écran 2025-05-29 133857](https://github.com/user-attachments/assets/77ec11e0-903e-43ec-9fd1-45d50982454d)
 
 _Avec checkbox pour les jeux terminés_
 
+
 ![Capture d'écran 2025-05-29 134058](https://github.com/user-attachments/assets/467dbf6f-2496-468a-8da9-85f09853d7d6)
 
 _Si une case est cochée, les totaux sont recalculés dynamiquement_
+
 
 ### 🔗 Liens
 
