@@ -36,11 +36,13 @@ _Avec les lignes totaux actuels et potentiels uniquement sur la dernière page_
 
 ![Capture d'écran 2025-05-29 164545](https://github.com/user-attachments/assets/5606beec-34f0-42f3-8999-4af249412a60)
 
+
 #### _Formulaire pour modifier les stats :_
 
 ![Capture d'écran 2025-05-31 220950](https://github.com/user-attachments/assets/3e8b22db-9456-45a3-96d9-5285a5ded054)
 
 ![Capture d'écran 2025-05-29 164557](https://github.com/user-attachments/assets/912597bf-d15b-4d71-9f6d-cc61e6180b24)
+
 
 #### _Graphiques de comparaison :_
 
