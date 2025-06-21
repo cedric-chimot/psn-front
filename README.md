@@ -32,20 +32,17 @@ _Avec les lignes totaux actuels et potentiels uniquement sur la dernière page_
 
 ![Capture d'écran 2025-05-29 164545](https://github.com/user-attachments/assets/5606beec-34f0-42f3-8999-4af249412a60)
 
-
 #### _Formulaire pour modifier les stats :_
 
 ![Capture d'écran 2025-05-31 220950](https://github.com/user-attachments/assets/3e8b22db-9456-45a3-96d9-5285a5ded054)
 
 ![Capture d'écran 2025-05-29 164557](https://github.com/user-attachments/assets/912597bf-d15b-4d71-9f6d-cc61e6180b24)
 
-
 #### _Graphiques de comparaison :_
 
 ![Capture d'écran 2025-05-29 164618](https://github.com/user-attachments/assets/930bfd47-02f4-44ea-a29c-fba1881137c9)
 
 ![Capture d'écran 2025-05-29 164640](https://github.com/user-attachments/assets/12da0393-6a03-453e-b79b-774f5cb0aa25)
-
 
 #### _Road to 10k :_
 
@@ -56,7 +53,6 @@ _Avec checkbox pour les jeux terminés_
 ![Capture d'écran 2025-05-29 134058](https://github.com/user-attachments/assets/467dbf6f-2496-468a-8da9-85f09853d7d6)
 
 _Si une case est cochée, les totaux sont recalculés dynamiquement_
-
 
 ### 🔗 Liens
 
