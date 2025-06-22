@@ -12,9 +12,11 @@
 
 _Avec les lignes totaux actuels et potentiels uniquement sur la dernière page_
 
+
 #### _Ajouter un jeu :_
 
 ![Capture d'écran 2025-05-25 171337](https://github.com/user-attachments/assets/4a417986-b8dd-4512-95c5-dee955a01cdc)
+
 
 #### _Modifier un jeu :_
 
