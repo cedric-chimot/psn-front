@@ -27,9 +27,11 @@ _Avec les lignes totaux actuels et potentiels uniquement sur la dernière page_
 
 ![Capture d'écran 2025-05-29 092604](https://github.com/user-attachments/assets/b7c8548b-0269-4276-a35d-8efd2a5c2441)
 
+
 #### _La page stats trophées :_
 
 ![Capture d'écran 2025-05-31 220922](https://github.com/user-attachments/assets/5b8b6c97-17a9-4716-b824-10777f3860b8)
+
 
 #### _La page stats niveaux :_
 
