@@ -37,6 +37,7 @@ _Avec les lignes totaux actuels et potentiels uniquement sur la dernière page_
 
 ![Capture d'écran 2025-05-29 164545](https://github.com/user-attachments/assets/5606beec-34f0-42f3-8999-4af249412a60)
 
+
 #### _Formulaire pour modifier les stats :_
 
 ![Capture d'écran 2025-05-31 220950](https://github.com/user-attachments/assets/3e8b22db-9456-45a3-96d9-5285a5ded054)
@@ -61,6 +62,7 @@ _Avec checkbox pour les jeux terminés_
 ![Capture d'écran 2025-05-29 134058](https://github.com/user-attachments/assets/467dbf6f-2496-468a-8da9-85f09853d7d6)
 
 _Si une case est cochée, les totaux sont recalculés dynamiquement_
+
 
 ### 🔗 Liens
 
