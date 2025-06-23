@@ -39,13 +39,11 @@ _Avec les lignes totaux actuels et potentiels uniquement sur la dernière page_
 
 ![Capture d'écran 2025-05-29 164557](https://github.com/user-attachments/assets/912597bf-d15b-4d71-9f6d-cc61e6180b24)
 
-
 #### _Graphiques de comparaison :_
 
 ![Capture d'écran 2025-05-29 164618](https://github.com/user-attachments/assets/930bfd47-02f4-44ea-a29c-fba1881137c9)
 
 ![Capture d'écran 2025-05-29 164640](https://github.com/user-attachments/assets/12da0393-6a03-453e-b79b-774f5cb0aa25)
-
 
 #### _Road to 10k :_
 
